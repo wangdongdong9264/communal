@@ -44,3 +44,35 @@
 4. cursor
 5. table
 
+
+###sql 对大小写不敏感
+
+###sql 语句后面的分号
+
+* 分号是在数据库系统中分割每条sql语句的标准方法，这样就可以在对服务器的相同请求中执行一条以上的语句
+
+### sql DML 和 DDL
+1. DML（数据操作语言）
+2. DDL（数据定义语言）
+* 查询和更新指令构成了DML
+
+```
+select - 从数据库表中获取数据
+update - 更新数据库表中的数据
+delete - 从数据库表中删除数据
+insert into - 向数据库表中插入数据
+```
+
+* sql 中重要的DDL语句
+
+```
+create database - 创建新数据库
+alter database - 修改数据库
+create table - 创建新表
+alter table - 变更（改变）数据库表
+drop table - 删除表
+create index - 创建索引（搜索键）
+drop index - 删除索引
+```
+
+
