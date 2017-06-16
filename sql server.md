@@ -75,4 +75,160 @@ create index - 创建索引（搜索键）
 drop index - 删除索引
 ```
 
+---
+
+###创建数据库
+
+
+```
+create database test
+on
+primary(name=test,  
+        filename='E:\test\test.mdf',
+        size=4mb,
+        maxsize=10mb,
+        filegrowth=2mb
+        )
+log on
+        (name=testlog,
+        filename='E:\test\testlog.ldf',
+        size=1mb,
+        maxsize=5mb,
+        filegrowth=1mb
+        )
+```
+
+---
+###创建数据表
+
+```
+USE Test
+GO
+IF EXISTS(SELECT NAME FROM SYS.TABLES WHERE NAME='Student')
+DROP TABLE Student
+GO
+CREATE TABLE Student
+(
+	Sname NCHAR(10),
+	Sex NCHAR(2),
+	Bir DATETIME
+)
+```
+
+---
+
+###
+```
+ALTER TABLE 表名 ALTER COLUMN 列名 类型 null
+```
+
+---
+
+### sql 基础
+
+1. select
+* 用于重表中选取数据
+
+```
+select 列名称 from 表名称
+```
+2. select distinct
+* 用于返回唯一不同的值
+
+```
+select distinct 列名称 from 表名称
+```
+
+3. where
+* 有条件地从表中选取数据
+
+```
+select 列名称 from 表名称 where 列 运算符 值
+```
+>运算符
+* =
+* <>    !=
+* >
+* <
+* >=
+* <=
+* between   在某个范围内
+* like  搜索某种模式
+
+4. and 和 or
+* and - 如果第一个条件和第二个条件都成立，则 AND 运算符显示一条记录
+* or -  如果第一个条件和第二个条件中只要有一个成立，则 OR 运算符显示一条记录
+
+```
+SELDCT 列名称 FROM 表名称 WHERE 列名称='条件' OR 列名称2='条件2'
+```
+
+5. ORDER BY
+* 用于根据指定的列对结果集进行排序 
+* 默认按照升序对记录进行排序 
+* 按照降序对记录进行排序，可以使用 DESC 关键字
+
+```
+SELDCT 列名称 FROM 表名称 ORDER BY 列名称 DESC, 列名称 ASC
+```
+
+6. insert
+* INSERT INTO 语句用于向表格中插入新的行
+
+```
+INSERT INTO 表列名 VALUES (值, 值2...)
+```
+>指定所需要插入数据的列
+
+```
+INSERT INTO 表列名 (列, 列2...) VALUES (值, 值2...)
+```
+
+7. UPDATE
+* 用于修改表中的数据
+
+```
+UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 值
+```
+
+8. DELETE 
+* 用于删除表中的行
+
+```
+DELETE FROM 表名称 WHERE 列名称 = 值
+```
+
+>删除所有行
+* 在不删除表的情况下删除所有的行。这意味着表的结构、属性和索引都是完整的
+```
+DELETE * FROM 表名称
+```
+
+
+
+
+
+
+
+
+
+
+
+##注意
+
+1. SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。如果是数值，请不要使用引号
+
+2. SQL Server插入中文数据出现乱码问题
+```
+INSERT INTO Student (Sname) VALUES (N'测试');
+```
+
+##其它
+
+[SQL SERVER 无法连接到（local）](http://jingyan.baidu.com/article/b24f6c82c52ed686bfe5da17.html)
+
+>注释
+* 单行注释：--
+* 多行注释：/*......*/
+
 
