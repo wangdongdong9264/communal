@@ -117,6 +117,12 @@ CREATE TABLE Student
 
 ---
 
+###引用两张表
+
+```
+SELECT 
+```
+
 ###
 ```
 ALTER TABLE 表名 ALTER COLUMN 列名 类型 null
@@ -204,6 +210,61 @@ DELETE FROM 表名称 WHERE 列名称 = 值
 DELETE * FROM 表名称
 ```
 
+9. TOP
+* 用于规定要返回的记录的数目
+
+```
+SELECT TOP NUMBER|PERCENT COLUMN_NAME(S) FROM TABLE_NAME
+```
+
+10. LIKE
+* 操作符用于在 WHERE 子句中搜索列中的指定模式
+
+```
+SELECT COLUMN_NAME(S) FROM TABLE_NAME WHERE COLUMN_NAME LIKE PATTERN
+```
+
+11. 通配符
+* 在搜索数据库中的数据时，SQL 通配符可以替代一个或多个字符
+* SQL 通配符必须与 LIKE 运算符一起使用
+
+1. %    替代一个或多个字符
+2. _    仅替代一个字符
+3. [CHARLIST]   字符列中的任何单一字符
+4. [^CHARLIST] OR [!CHARLIST]     不在字符列中的任何单一字符
+
+
+12. IN
+* 操作符允许我们在 WHERE 子句中规定多个值
+SELECT COLUMN_NAME(S) FROM TABLE_NAME WHERE COLUMN_NAME IN (VALUE,VALUE2,...)
+
+13. BETWEEN AND
+* 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期
+
+```
+SELECT COLUMN_NAME(S)
+FROM TABLE_NAME
+WHERE COLUMN_NAME
+BETWEEN VALUE AND VALUE2
+
+```
+
+14. ALIAS
+* 为列名称和表名称指定别名
+
+```
+SELECT COLUMN_NAME(S)
+FROM TABLE_NAME
+AS ALIAS_NAME
+```
+
+15. JOIN AND KEY
+*  join 用于根据两个或多个表中的列之间的关系
+
+```
+
+
+```
 
 
 
