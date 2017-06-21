@@ -262,11 +262,21 @@ AS ALIAS_NAME
 *  join 用于根据两个或多个表中的列之间的关系
 
 ```
-
-
+SELECT column_name(s)
+FORM table_name 
+INNER JOIN table_name2
+ON table_name.column_name = table_name2.column_name
 ```
 
+* LEFT JOIN 关键字会从左表 (table_name) 那里返回所有的行，即使在右表 (table_name2) 中没有匹配的行
 
+* RIGHT JOIN 关键字会从右表 (table_name2) 那里返回所有的行，即使在左表 (table_name) 中没有匹配的行
+
+* FULL JOIN 只要其中某个表存在匹配，FULL JOIN 关键字就会返回行
+
+
+16. UNION
+* 
 
 
 
