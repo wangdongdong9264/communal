@@ -45,6 +45,67 @@
 5. table
 
 
+###sql 约束
+>NOT NULL
+* NOT NULL 约束强制列不接受 NULL 值
+* NOT NULL 约束强制字段始终包含值。这意味着，如果不向字段添加值，就无法插入新记录或者更新记录
+
+>UNIQUE
+* UNIQUE 约束唯一标识数据库表中的每条记录
+* UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证,PRIMARY KEY 拥有自动定义的 UNIQUE 约束
+* 每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束
+
+>PRIMARY KEY
+* PRIMARY KEY 约束唯一标识数据库表中的每条记录
+* 主键必须包含唯一的值
+* 主键列不能包含 NULL 值
+* 每个表都应该有一个主键，并且每个表只能有一个主键
+
+>FOREIGN KEY
+* FOREIGN KEY 约束用于预防破坏表之间连接的动作
+* FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一
+
+```
+CREATE TABLE table_name
+(
+        column_name data_type FOREIGN KEY REFERENCES table_name2(column_name)
+        
+)
+```
+
+* 如果需要命名 FOREIGN KEY 约束，以及为多个列定义 FOREIGN KEY 约束
+
+```
+CREATE TABLE table_name
+(
+        PRIMARY KEY (column_name),
+        CONSTRAINT fk_name FOREIGN KEY (column_name)
+        REFERENCES table_name(column_name)
+)
+```
+
+* 如果需要命名 FOREIGN KEY 约束，以及为多个列定义 FOREIGN KEY 约束
+
+```
+ALTER TABLE table_name
+ADD CONSTRAINT fk_name
+FOREIGN KEY (column_name)
+REFERENCES table_name2(column_name)
+```
+
+* 如需撤销 FOREIGN KEY 约束
+
+```
+ALTER TABLE table_name
+DROP CONSTRAINT fk_name
+```
+ 
+
+
+>CHECK
+>DEFAULT
+
+
 ###sql 对大小写不敏感
 
 ###sql 语句后面的分号
@@ -275,12 +336,48 @@ ON table_name.column_name = table_name2.column_name
 * FULL JOIN 只要其中某个表存在匹配，FULL JOIN 关键字就会返回行
 
 
-16. UNION
-* 
+16. UNION 和 UNION ALL
+* UNION 操作符用于合并两个或多个 SELECT 语句的结果集
+* UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。
+* UNION ALL 命令和 UNION 命令几乎是等效的，不过 UNION ALL 命令会列出所有的值* 
 
+```
+SELECT column_name(s) FROM table_name
+UNION
+SELECT column_name(s) FROM table_name2
 
+```
 
+17. SELECT INTO 
+* SELECT INTO 语句从一个表中选取数据，然后把数据插入另一个表中
 
+```
+SELECT *
+INTO new_table_name [IN externaldatabase]
+FROM old_tablename
+```
+
+18. CREATE DATABASE
+* CREATE DATABASE 用于创建数据库
+
+```
+CREATE DATABASE database_name
+```
+
+19. CREATE TABLE 
+* CREATE TABLE 语句用于创建数据库中的表
+
+```
+CREATE TABLE table_name
+(
+        column_name data_type,
+        column_name2 data_type2,
+        column_name3 data_type3,
+        ...
+)
+```
+
+20. 
 
 
 
