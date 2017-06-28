@@ -422,7 +422,155 @@ CREATE TABLE table_name
 )
 ```
 
-20. 
+20. CREATE INDEX 
+* CREATE INDEX 语句用于在表中创建索引
+* 在不读取整个表的情况下，索引使数据库应用程序可以更快地查找数据
+* 更新一个包含索引的表需要比更新一个没有索引的表更多的时间，这是由于索引本身也需要更新。因此，理想的做法是仅仅在常常被搜索的列（以及表）上面创建索引
+
+```
+CREATE INDEX index_name
+ON TABLE_NAME (column_name)
+```
+
+* 在表上创建一个唯一的索引。唯一的索引意味着两个行不能拥有相同的索引值
+
+```
+CTEATE UNIQUE INDEX index_name
+ON table_name (column_name)
+```
+
+21. DROP
+* 使用 DROP 语句，可以轻松地删除索引、表和数据库
+
+* 使用 DROP INDEX 命令删除表格中的索引
+```
+DROP INDEX table_name.index_name
+```  
+
+* DROP TABLE 语句用于删除表（表的结构、属性以及索引也会被删除）
+```
+DROP TABLE table_name
+```
+
+* DROP DATABASE 语句用于删除数据库
+```
+DROP DATABASE database_name
+```
+
+* TRUNCATE TABLE 命令（仅仅删除表格中的数据）
+```
+TRUNCATE TABLE table_name
+```
+
+22. ALTER TABLE
+* ALTER TABLE 语句用于在已有的表中添加、修改或删除列
+
+* 在表中添加列
+```
+ALTER TABLE table_name
+ADD column_name data_type
+```
+
+* 删除表中的列
+```
+ALTER TABLE table_name
+DROP COLUMN column_name
+```
+
+* 改变表中列的数据类型
+```
+ALTER TABLE table_name
+ALTER COLUMN column_name data_type
+```
+
+23. AUTO INCREMENT
+* Auto-increment 会在新记录插入表中时生成一个唯一的数字
+```
+CREATE TABLE table_name
+(
+        column_name data_type fk_name INCREMENT(start_value,increasing_value)
+)
+```
+
+24. view
+* SQL 中，视图是基于 SQL 语句的结果集的可视化的表
+* 数据库的设计和结构不会受到视图中的函数、where 或 join 语句的影响
+
+```
+CREATE VIEW view_name AS
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+```
+
+* 更新视图
+
+```
+CREATE VIEW OR REPLACE VIEW Syntax
+CREATE OR REPLACE VIEW view_name AS
+SELCET column_name(s)
+FROM table_name
+WHERE condition
+```
+
+* 删除视图
+
+```
+SQL DROP VIEW Syntax
+FROP VIEW view_name
+```
+
+25.  Date 函数
+
+* GETDATE()	返回当前日期和时间
+* DATEPART()	返回日期/时间的单独部分
+* DATEADD()	在日期中添加或减去指定的时间间隔
+* DATEDIFF()	返回两个日期之间的时间
+* CONVERT()	用不同的格式显示日期/时间
+
+
+* SQL Server 使用下列数据类型在数据库中存储日期或日期/时间值：
+
+>DATE - 格式 YYYY-MM-DD
+>DATETIME - 格式: YYYY-MM-DD HH:MM:SS
+>SMALLDATETIME - 格式: YYYY-MM-DD HH:MM:SS
+>TIMESTAMP - 格式: 唯一的数字
+
+
+26. NULL 值
+* 表中的某个列是可选的，那么我们可以在不向该列添加值的情况下插入新记录或更新已有的记录。这意味着该字段将以 NULL 值保存
+* NULL 值的处理方式与其他值不同
+* NULL 用作未知的或不适用的值的占位符
+* 无法比较 NULL 和 0；它们是不等价的
+
+* 选取在 "column_name" 列中带有 NULL 值的记录
+```
+SELECT column_name,column_name2,column_name3 FROM table_name
+WHERE column_name IS NULL
+```
+
+* 选取在 "column_name" 列中不带有 NULL 值的记录
+```
+SELECT column_name,column_name2,column_name3 FROM table_name
+WHERE column_name IS NOT NULL
+```
+
+28. NULL 函数
+* 微软的 ISNULL() 函数用于规定如何处理 NULL 值，NVL(), IFNULL() 和 COALESCE() 函数也可以达到相同的结果
+* 值是 NULL 则 ISNULL() 返回 0
+
+```
+SELECT column_name,column_name2*(column_name3+ISNULL(column_name4,0)
+FROM table_name
+```
+
+
+
+
+
+
+
+
 
 
 
