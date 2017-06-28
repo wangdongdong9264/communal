@@ -99,11 +99,56 @@ REFERENCES table_name2(column_name)
 ALTER TABLE table_name
 DROP CONSTRAINT fk_name
 ```
- 
-
 
 >CHECK
+* CHECK 约束用于限制列中的值的范围
+
+```
+CREATE TABLE table_name
+(
+        column_name data_type constraint CHECK (constraints)
+)
+```
+
+* 需要命名 CHECK 约束，以及为多个列定义 CHECK 约束
+
+```
+CRTATE TABLE table_name
+(
+        CONSTRAINT chk_name CHECK (column_name>0 column_name2='data_name')
+)
+```
+
+* 撤销 CHECK 约束
+
+```
+ALTER TABLE table_name
+DROP CHECK chk_name
+```
+
 >DEFAULT
+* DEFAULT 约束用于向列中插入默认值
+
+```
+CREATE TABLE table_name
+(
+        column_name data_type DEFAULT 'default_name'
+)
+```
+
+* 在表已存在的情况下为 "City" 列创建 DEFAULT 约束
+
+```
+ALTER TABLE table_name
+ALTER COLUMN column_name SET DEFAULT 'default_name'
+```
+
+* 撤销 DEFAULT 约束
+
+```
+ALTER TABLE table_name
+ALTER COLUMN column_name DROP DEFAULT
+```
 
 
 ###sql 对大小写不敏感
