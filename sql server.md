@@ -611,8 +611,86 @@ SELECT LAST(column_name) FROM table_name
 SELECT MAX(column_name) FROM table_name
 ```
 
+6. MIN()
+* MIN 函数返回一列中的最小值。NULL 值不包括在计算中
+
+```
+SELECT MIN(column_name) FROM table_name
+```
+
+7. SUM()
+* SUM 函数返回数值列的总数（总额）
+
+```
+SELECT SUM(column_name) FROM table_name
+```
+
+8. GROUP BY 语句
+* GROUP BY 语句用于结合合计函数，根据一个或多个列对结果集进行分组
+
+```
+SELECT column_name,aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name
+```
+
+9. HAVEING 子句
+* 在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用
+
+```
+SELECT column_name,aggregate_function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUR BY column_name
+HAVING aggregate_function(column_name) operator value
+```
+
+10. UCASE()
+* UCASE 函数把字段的值转换为大写
+
+```
+SELECT UCASE(column_name) FROM table_name
+```
+
+11. LCASE()
+* LCASE 函数把字段的值转换为小写
+
+```
+SELECT LCASE(column_name) FROM table_name
+```
+
+12. MID()
+* MID 函数用于从文本字段中提取字符
+
+```
+SELECT MIN(column_name,start[,length]) FROM table_name
+```
+
+13. LEN()
+* LEN 函数返回文本字段中值的长度
+
+```
+SELECT LEN(column_name) FROM table_name
+```
+
+14. ROUND()
+* ROUND 函数用于把数值字段舍入为指定的小数位数
+
+```
+SELECT ROUND(column_name,decimals) FROM table_name
+```
+
+15. NOW()
+* Sql Server 数据库，使用 getdate() 函数来获得当前的日期时间。
 
 
+16. FORMAT()
+* FORMAT 函数用于对字段的显示进行格式化
+
+```
+SELECT FORMAT(column_name,format) FROM table_name
+```
 
 
 
