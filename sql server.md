@@ -568,8 +568,48 @@ FROM table_name
 
 
 ##SQL 函数
+ 
+1. AVG()
+* AVG 函数返回数值列的平均值。NULL 值不包括在计算中
+
+```
+SELECT AVG(column_name) FROM table_name
+```
+
+2. COUMT()
+* COUNT(column_name) 函数返回指定列的值的数目（NULL 不计入）
+
+```
+SELECT COUNT(column_name) FROM table_name
+```
+* COUNT(DISTINCT column_name) 函数返回指定列的不同值的数目
+* COUNT(DISTINCT) 适用于 ORACLE 和 Microsoft SQL Server，但是无法用于 Microsoft Access
+
+```
+SELECT COUNT(IDSTINCT column_name) FROM table_name 
+```
 
 
+3. FIRST()
+* FIRST() 函数返回指定的字段中第一个记录的值
+
+```
+SELECT FIRST(column_name) FROM table_name
+```
+
+4. LAST()
+* LAST() 函数返回指定的字段中最后一个记录的值
+
+```
+SELECT LAST(column_name) FROM table_name
+```
+
+5. MAX()
+* MAX 函数返回一列中的最大值。NULL 值不包括在计算中
+
+```
+SELECT MAX(column_name) FROM table_name
+```
 
 
 
