@@ -59,3 +59,39 @@ CONVERT(data_type, expression[, style])
 
 
 ```
+
+
+##other
+
+>查看端口命令
+
+```
+netstat -a -n
+```
+
+>登陆本地sql server
+1. .
+2. (local)
+3. 计算机全名
+4. 127.0.0.1
+
+>打开服务
+
+```
+services.msc
+```
+
+>int 
+1. int > 4字节 >32位
+2. 1字节 = 8位
+
+
+>nchar char 区别
+1. NChar,Nvarchar(32)  	N:Unicode，2个字节表示一个字符。
+2. Char：一个字节表示一个字符。
+
+>nvarchar nchar 区别
+1. nvarchar 节省空间，牺牲性能
+2. nchar    相反
+
+
