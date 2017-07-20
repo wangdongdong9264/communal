@@ -109,6 +109,29 @@ services.msc
 4. 生成SQL脚本(最好)
 
 
+>. computer Memory 
+>1 bit = Binary Digit
+>8 Bits = 1 Byte
+>1024 Bytes = 1 KB(Kilo Byte)
+>1024 KB = 1 MB(Mega Byte)
+>1024 MB = 1 GB(Giga Byte)
+>1024 GB= 1 TB(Terra Byte)
+>1024 TB = 1 PB(Peta Byte)
+>1024 PB = 1 EB(Exa Byte)
+>1024 EB = 1 ZB(Zetta Byte)
+>1024 ZB = 1 YB(Yotta Byte)
+>1024 YB = 1 (Bronto Byte)
+>1024 Brontobyte = 1 (Geop Byte)
+
+
+>other
+2. primary key  主键
+3. not null / null  是否为空
+4. default(18)  默认值
+5. identity(1,1)    自动增长 前一个是增长值
+
+
+[主键/外键](http://www.cnblogs.com/ywb-lv/archive/2012/03/12/2391860.html) 
 
 
 
