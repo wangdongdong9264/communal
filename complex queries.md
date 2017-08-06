@@ -143,7 +143,7 @@ services.msc
 [主键/外键](http://www.cnblogs.com/ywb-lv/archive/2012/03/12/2391860.html) 
 >>>>>>> origin/master
 
+[sql 死锁](http://www.cnblogs.com/rush/archive/2012/02/19/2358209.html)
 
-
-
+[高性能 sql](http://kb.cnblogs.com/page/156213/)
 
