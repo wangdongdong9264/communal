@@ -262,14 +262,10 @@ SELECT CAST(CustomerId as nvarchar(32))+Title FROM SalesLT.Customer
 
 
 [主键/外键](http://www.cnblogs.com/ywb-lv/archive/2012/03/12/2391860.html) 
-<<<<<<< HEAD
 6. sql 执行顺序
     1. from 找到表->where过滤->Group分组->having 筛选分组结果 ->Order 排序
-=======
->>>>>>> origin/master
 
 [sql 死锁](http://www.cnblogs.com/rush/archive/2012/02/19/2358209.html)
->>>>>>> origin/master
 
 [高性能 sql](http://kb.cnblogs.com/page/156213/)
 
