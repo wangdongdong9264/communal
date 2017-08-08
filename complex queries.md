@@ -250,6 +250,47 @@ SELECT CAST(CustomerId as nvarchar(32))+Title FROM SalesLT.Customer
 
 >日期函数
 
+1. 查询通话时间最长的5条记录
+
+SELECT TOP 5 id,CallerNumber,
+DATEDIFF(second, startdatetime,enddatetime) as dutime
+FROM CallRecords
+ORDER BY dutime DESC
+
+2. 查询以0开头的通话总时,以秒为计算单位
+
+SELECT 
+    SUN(DATEDIFF(SECOND,startdatetime,enddatetime))
+FROM CallRecords
+WHERE TelNum like '0%'
+
+3. 查询2010年7月通话总时长最多的前两个呼叫员的编号
+SELECT 
+    TOP 2
+    CallerNumber,
+    SUN(DATEDIFF(SECOND,startdatetime,enddatetime)) AS 时长
+    COUNT(*) AS 电话数
+FROM CallRecords
+WHERE DATEDIFF(MONTH,'2010-7-1',startdatetime) = 0
+GROUP BY
+    CallerNumber
+ORDER BY 时长 DESC
+
+4. 查询2010年7月拨打电话次数最多的前两个呼叫员的编号
+
+SELECT 
+    TOP 2
+    CallerNumber,
+    COUNT(*) AS 电话数
+FROM CallRecords
+WHERE DATEDIFF(MONTH,'2010-7-1',startdatetime) = 0
+GROUP BY 
+    CallerNumber
+ORDER BY 电话数 DESC
+
+
+
+
 
 
 
