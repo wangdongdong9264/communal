@@ -291,22 +291,29 @@ ORDER BY 电话数 DESC
 
 
 
+---
+Ado.Net 链接数据库
 
 
 
 
 >other
+[主键/外键](http://www.cnblogs.com/ywb-lv/archive/2012/03/12/2391860.html) 
+
+[sql 死锁](http://www.cnblogs.com/rush/archive/2012/02/19/2358209.html)
+
+[高性能 sql](http://kb.cnblogs.com/page/156213/)
 2. primary key  主键
 3. not null / null  是否为空
 4. default(18)  默认值
 5. identity(1,1)    自动增长 前一个是增长值
 
 
-[主键/外键](http://www.cnblogs.com/ywb-lv/archive/2012/03/12/2391860.html) 
+
 6. sql 执行顺序
     1. from 找到表->where过滤->Group分组->having 筛选分组结果 ->Order 排序
 
-[sql 死锁](http://www.cnblogs.com/rush/archive/2012/02/19/2358209.html)
+7. RESHARPER
 
-[高性能 sql](http://kb.cnblogs.com/page/156213/)
+
 
