@@ -65,3 +65,14 @@ decimal 金钱类型 精度高于double
 1. ref参数侧重于将一个变量以参数的形式带到一个方法中进行改变，
 改变完成后，再讲改变后的值带出来。
 2. 在使用ref参数的时候需要注意：ref参数在方法外必须为其赋值。
+
+##封装
+>修饰符
+1. Public   所有对象都可以访问
+2. Private  对象本身在对象内部可以访问
+3. Protected    只有该类对象及其子类对象可以访问
+4. Internal 同一个程序集的对象可以访问
+5. Protected internal   该程序集内的派生类访问，是protected和internal的交集
+
+
+
