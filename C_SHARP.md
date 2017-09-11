@@ -75,4 +75,14 @@ decimal 金钱类型 精度高于double
 5. Protected internal   该程序集内的派生类访问，是protected和internal的交集
 
 
+##异常处理
+
+1. try: 一个try标记了一个将被激活的特定的异常的代码块。后跟一个或多个catch块
+
+2. catch: 程序通过异常处理程序捕获异常。catch关键字表示异常的捕获。
+
+3. finally: finally块用于执行给定的语句，不管异常是否被抛出都会执行
+
+4. throw: 当问题出现时，程序抛出一个异常。使用throw关键字来完成
+
 
