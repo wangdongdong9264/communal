@@ -52,5 +52,5 @@ git commit -m "提交的注释"
 >提交到远程
 
 ```
-git push pu origin master
+git push -u origin master
 ```
