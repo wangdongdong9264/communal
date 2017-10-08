@@ -54,3 +54,26 @@ git commit -m "提交的注释"
 ```
 git push -u origin master
 ```
+
+4. 工作区状态
+
+>仓库的状态
+
+```
+git status
+```
+
+>具体修改
+
+```
+git diff
+```
+
+5. 版本回退
+
+>历史纪录
+
+```
+git log
+```
+
