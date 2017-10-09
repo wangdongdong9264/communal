@@ -98,3 +98,53 @@ git reflog
 git reset --hard [commit id]
 ```
 
+6. 撤销修改
+
+* 修改还没有放到暂存区
+
+```
+git checktout --filename
+```
+
+* 已提交到暂存区，并做了修改
+
+```
+git reset HEAD filename
+```
+
+7. 删除/误删
+```
+git rm filename         //删除
+
+git checkout --filename // 恢复误删的本地
+```
+
+8. 创建/切换/合并/删除分支
+
+```
+git branch                  // 查看分支
+git branch [name]           // 创建分支
+git checkout [name]         // 切换分支     快捷创建和切换分支 git checkout -b [name]
+git merge [name]            // 合并name分支到当前分支
+git branch -d [name]        // 删除分支
+
+```
+
+9. 冲突
+
+* 先解决再提交冲突
+* 查看分支合并图
+```
+git log --graph
+```
+
+10. 隐藏当前工作区，建立新的分支，恢复工作区
+
+```
+git stash                   // 隐藏当前工作区
+
+git stash list              // 查看隐藏的工作区
+git stash apply [workname]  // 恢复但不删除 需git stash drop手动删除
+git stash pop               // 恢复并删除
+            
+```
