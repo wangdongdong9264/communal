@@ -77,3 +77,24 @@ git diff
 git log
 ```
 
+>回退到上一个版本或n个版本
+
+```
+git reset --hard HEAD^
+
+git reset --hard HEAD~n
+```
+
+
+>命令记录
+
+```
+git reflog
+```
+
+>恢复到某个版本
+
+```
+git reset --hard [commit id]
+```
+
