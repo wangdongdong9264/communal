@@ -1,3 +1,5 @@
+
+
 1. let 命令 
 >只在代码块有用
 >声明后使用  不存在变量提升
@@ -58,3 +60,90 @@ bar // "bbb"
 >防止属性名的冲突
 >
 
+##other
+
+1. es2015
+
+[组装 苹果教程](http://news.zol.com.cn/577/5777191.html)
+
+[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
+
+---
+
+
+
+1. 字符串的扩展
+* 字符的 unicode 表示
+```es6
+let hello = 123;
+hell\u{6f}  //123
+
+```
+
+* codePointAt()
+> 处理unicode码 > '0xffff'的字符
+
+```es6
+let s = '𠮷a';
+s.codePointAt(0);   //134071
+```
+
+* String.fromCodePoint()
+> 识别大于 Unicode > 0xffff的码点
+```es6
+String.fromCodePoint(0x78,0x1f680,0x79) === 'x\uD83D\uDE80y'    // true
+```
+
+* 字符串的遍历器接口
+
+```es6
+for (let codePoint of 'foo') {
+    console.log(codePoint)
+}
+// 'f'
+// 'o'
+// 'o'
+```
+
+* at()
+>返回字符串指定位置的字符 charAt()的扩展
+```es6
+'𠮷'.at(0) // "𠮷"
+```
+
+* normailze()
+> 将字符串的不同表达方式，统一为同样的形式
+
+ ```es6
+'\u01D1'==='\u004F\u030C' //false
+
+'\u01D1'.normalize() === '\u004F\u030C'.normalize() //true 
+ ```
+
+ * includes(), startsWith(), endsWith()
+
+>includes()     返回布尔值，表示是否找到了参数字符串
+>startsWith()   返回布尔值，表示参数字符串是否在原字符串的头部
+>endsWith()     返回布尔值，表示参数字符串是否在原字符串的尾部
+
+```es6
+let s = 'hello world!';
+s.startsWith('hello') // true
+s.endsWith('!') // true
+s.includes('o') // true
+
+```
+
+* repeat()
+>返回一个新字符串， 表示将源字符重复n次
+>参数不能为负数或Infinity
+>-1 < 参数 < 0  或 NaN     转换数字/取整
+
+```es6
+
+'na'.repeat('3') // 'nanana'
+```
+
+* padStart(), padEnd()
+>es2017 字符串补全
+>
