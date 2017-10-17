@@ -146,4 +146,179 @@ s.includes('o') // true
 
 * padStart(), padEnd()
 >es2017 字符串补全
->
+
+
+---华丽丽的分割线
+
+[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
+[raspberry pi ide](https://blog.idrsolutions.com/2014/12/top-8-ides-programmers-coders-beginners-raspberry-pi/)
+[arm ide developer](https://developer.arm.com/products/software-development-tools/ds-5-development-studio/resources/tutorials/getting-started-with-ds-5-ce-and-armv8-foundation-platform)
+[arduino ide](https://playground.arduino.cc/Linux/Raspbian)
+
+[raspberry pi swap](http://www.ncnynl.com/archives/201612/1155.html)
+
+
+---
+
+
+
+* 模板字符串 反引号"`"
+>可以当作普通字符串使用，也可以定义多行字符串，或者在字符串中嵌入变量
+>所有的空格和缩进都会保留在输出中
+
+```es6
+let name = "Bob" ,time = "today";
+
+`Hello ${name}, how are you ${time}?`
+
+```
+
+* String.raw()
+>将转义字符原样输出
+
+```es6
+String.raw`hi\n{2+3}!`;
+// 'h1\n5!'
+
+```
+
+---华丽丽的分割线
+
+
+## 正则
+
+* u 修饰符
+>正确的处理大于\uffff的 Unicode 字符
+```es6
+/^\uD83D/u.test('\uD83D\uDC2A') //false
+
+```
+
+* y 修饰符
+>全局匹配 从后一次匹配成功的下一个位置开始
+>必须从剩余的第一个位置开始
+
+```es6
+var s = 'aaa_aa_a';
+var r1 = /a+/g;
+var r2 = /a+/y;
+
+r1.exec(s)  // ['aaa']
+r2.exec(s)  // ['aaa']
+// _aa_a
+r1.exec(s)  // ['aa']   
+r2.exec(s)  // null
+
+
+// lastIndex 属性
+// 指定每次搜索开始的位置
+
+const REGEX = /a/y;
+REGEX.lastIndex = 3;
+const match = REGEX.exec('xaxa')
+match.index // 3
+REGEX.lastIndex //4
+
+```
+
+* sticky 属性
+>是否设置了y修饰符
+
+```es6
+var r = /helo\d/y;
+r.sticky    //true
+```
+
+* flags 属性
+>返回正则表达式的修饰符
+
+```es6
+/abc/ig.flags   // 'gi'
+
+/adc/ig.source  // 'abc'    正文
+```
+
+* s 修饰符 dotAll模式
+>'.'代表任意单个字符，但行终止符除外
+* U+000A    换行(\n)
+* U+000D    回车符(\r)
+* U+2028    行分隔符
+* U+2029    段分隔符
+>可以使'.'匹配任意单个字符 
+
+```es6
+/foo.bar/s.test('foo\nbar') // true
+
+const re = /foo.bar/s;
+re.test('foo\nbar')
+re.dotAll   //true
+
+
+```
+---又是一个分割线
+
+## 数值的扩展
+
+* 二进制和八进制表示法
+
+>二进制    前缀0b/0B
+>八进制    前缀0o/0O
+
+```es6
+0b11111011 === 503  // true
+0o767 === 503       // true
+
+Number('0b111') // 7
+```
+
+* Number.isFinite(),Number.isNaN()
+
+> Number.isFinite() 检查一个数值是否为有限的
+> Number.isNaN()    检查一个值是否为NaN
+
+* Number.parseInt(),Number.parseFloat()
+
+> es6将全局方法移植到Number对象上面
+
+
+* Number.isInteger()
+
+> 判断一个值是否为整数
+> 在javascript 内部 整数和浮点数是同样的存储方法
+
+```es6
+Number.isInteger(25.0)  //true
+Number.isInteger(25.1)  //false
+```
+
+* Number.EPSILON
+>可接受的误差范围
+
+```es6
+0.1 + 0.2   // 0.30000000000000004
+
+function withinErrorMargin (left, right) {
+    return  Math.abs(left - right) < Number.EPSILON * Math.pow(2,2);
+}
+0.1 + 0.2 === 0.3 //false
+withinErrorMargin(0.1 + 0.2, 0.3)   // true
+1.1 + 1.3 === 2.4 //false
+withinErrorMargin(1.1 + 1.3, 2.4)   // true
+``` 
+
+
+* 安全整数和Number.isSafeInteger()
+> -2^53 < 整数范围 < 2^53
+>isSafeInteger() 判断一个整数是否在安全范围内
+```es6
+
+
+Number.MAX_SAFE_INTEGER === 9007199254740991    //true  Math.pow(2, 53)
+Number.MIN_SAFE_INTEGER === -9007199254740991   //true
+
+Number.isSafeInteger(9007199254740991)  // true 
+Number.isSafeInteger(9007199254740992)  // false
+```
+
+## math 对象的扩展
+
