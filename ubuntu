@@ -1,0 +1,82 @@
+##.deb install
+
+```
+sudo dpkg -i package_name.deb
+```
+##卸载软件
+```
+sudo apt-get remove filename
+```
+
+##重命名
+1. 将A重命名B
+```
+mv A b
+```
+
+2. 创建文件夹
+```
+mkdir filename
+```
+
+##.tar
+
+```
+tar xvf filename.tar
+
+
+tar cvf filename.tar DirName
+
+```
+
+##.tar.bz2
+
+```
+tar jxvf filename.tar.bz2
+
+
+tar jcvf filename.tar.bz2 DirName
+```
+
+
+##.tar.gz
+
+```
+tar zxvf filename.tar.gz
+
+
+tar zcvf filename.tar.gz DirName
+```
+
+##tar.xz
+
+```
+tar -d filename.tar.xz
+
+tar -z filename.tar
+```
+
+##安装webstorm
+
+1. 官网下载
+2. 解压 tar zxvf filename.tar.gz
+3. 移动 mv filename /usr/lib/
+4. cd /usr/lib/filename/
+5. 安装 sh bin/webstorm.sh
+
+
+##node 开发环境
+1. 官网下载
+2. 解压 tar -d filename.tar.xz | tar xvf filename.tar
+3. 移动 sudo mv filename /opt/
+4. 安装 sudo ln -s /opt/filename/bin/node /usr/loacl/bin/node | sudo ln -s /opt/filename/bin/npm /usr/loacl/bin/npm
+
+
+
+
+##其它
+1. 软件最好安装在 /usr/lib/
+
+[windows & ubuntu](https://jingyan.baidu.com/article/4d58d5411380dd9dd5e9c07e.html)
+
+[ubuntu android开发环境](http://www.linuxidc.com/Linux/2014-05/101149.htm)
