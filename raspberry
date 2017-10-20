@@ -1,1 +1,103 @@
 [开机后黑屏 只有光标](http://tieba.baidu.com/p/4327845290)
+
+## fcitx输入中文时 不显示候选词
+
+1. 卸载 fcitx-module-kimpanel
+
+```
+sudo apt remove fcitx-module-kimpanel
+```
+
+2. 重启
+
+## nano单模式编辑器
+
+1. 打开或新建一个文件
+
+```
+nano filename
+```
+
+2. 保存和退出
+
+```
+Ctrl + O	// 输入或修改文件名 然后按Enter
+
+Ctrl + X	// 退出
+```
+
+3. 搜索
+
+```
+Ctrl + W	// 输入字符串 然后Enter
+```
+
+## respberry 没有声音
+
+```
+sudo raspi-config
+
+// 找到Advanced options, 进入Audio设置，选择force 3.5mm ('headphone')
+
+```
+
+## 
+
+## 修改GPU内存 重启后可能会进入终端
+
+```
+swichdesk GNOME
+
+
+startx
+
+```
+
+## raspi-config 设置
+
+
+[教程](http://www.cnblogs.com/xy888/p/5479552.html)
+
+
+## install git
+
+```
+sudo apt-get install git
+
+```
+
+## install Geany IDE
+
+```
+sudo apt-get install geany
+
+geany	// start
+```
+## install epiphany-browser
+```
+sudo apt-get install epiphany-brower
+
+epiphany	// start
+```
+
+
+
+
+
+
+
+#other
+
+[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
+[raspberry pi ide](https://blog.idrsolutions.com/2014/12/top-8-ides-programmers-coders-beginners-raspberry-pi/)
+[arm ide developer](https://developer.arm.com/products/software-development-tools/ds-5-development-studio/resources/tutorials/getting-started-with-ds-5-ce-and-armv8-foundation-platform)
+[arduino ide](https://playground.arduino.cc/Linux/Raspbian)
+
+[raspberry pi swap](http://www.ncnynl.com/archives/201612/1155.html)
+
+[ide raspberry](https://linux.cn/article-8885-1.html)
+
+[vs code ](http://dattabase.com/install-vs-code-raspberry-pi-3/)
+
+
+
