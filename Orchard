@@ -1,0 +1,90 @@
+###orchard 引入js/css/font
+
+
+>添加js
+
+
+1.  在Orchard.Web\Themes\TheThemeMachine\Views\Layout.cshtml 添加路径
+```js
+Script.Include(Url.Content("~/Themes/TheThemeMachine/Scripts/base.js"));
+```
+
+2. 在Orchard.Web\Themes\TheThemeMachine\Scripts\新建Web.config 添加权限
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.webServer>
+        <staticContent>
+            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="7.00:00:00" />
+        </staticContent>
+        <handlers accessPolicy="Script,Read">
+            <!-- For any request to a file exists on disk, return it via native http module. AccessPolicy="Script" above is to allow for a managed 404 page. -->
+            <add name="StaticFile" path="*" verb="*" modules="StaticFileModule" preCondition="integratedMode" resourceType="File" requireAccess="Read" />
+        </handlers>
+    </system.webServer>
+</configuration>
+
+```
+---
+>添加 css
+
+1. 在Orchard.Web\Themes\TheThemeMachine\Views\Layout.cshtml 添加路径
+```js
+Style.Include("bootstrap.css");
+```
+
+2. 添加 Web.config 
+---
+
+>添加 woff2
+
+1. 在Orchard.Web\Themes\TheThemeMachine\Views\Layout.cshtml 添加路径
+```js
+Style.Include(Url.Content("~/Themes/TheThemeMachine/fonts/glyphicons-halflings-regular.woff2"));
+```
+
+2. 添加 Web.config
+
+
+---
+
+> TheThemeMachine tree
+
+```
+│  Placement.info
+│  Theme.png
+│  Theme.txt
+│  ThemeZonePreview.png
+│  tree.txt
+│  
+├─App_Data
+│  └─Localization
+│      └─zh-CN
+│              orchard.theme.po
+│              
+├─Fonts
+│      glyphicons-halflings-regular.woff2
+│      Web.config
+│      
+├─Scripts
+│      base.js
+│      bootstrap.js
+│      jquery.js
+│      Web.config
+│      
+├─Styles
+│      bootstrap.css
+│      default-grid.css
+│      Site.css
+│      Web.config
+│      
+└─Views
+        BadgeOfHonor.cshtml
+        Branding.cshtml
+        Layout.cshtml
+        Pager.cshtml
+        Pager.First.cshtml
+        Pager.Last.cshtml
+        
+```
