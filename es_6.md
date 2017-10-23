@@ -52,21 +52,9 @@ bar // "bbb"
 ```
 
 
-
-
-
-
 4. Symbol 数据类型
 >防止属性名的冲突
->
 
-##other
-
-1. es2015
-
-[组装 苹果教程](http://news.zol.com.cn/577/5777191.html)
-
-[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
 
 ---
 
@@ -149,16 +137,6 @@ s.includes('o') // true
 
 
 ---华丽丽的分割线
-
-[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
-[raspberry pi ide](https://blog.idrsolutions.com/2014/12/top-8-ides-programmers-coders-beginners-raspberry-pi/)
-[arm ide developer](https://developer.arm.com/products/software-development-tools/ds-5-development-studio/resources/tutorials/getting-started-with-ds-5-ce-and-armv8-foundation-platform)
-[arduino ide](https://playground.arduino.cc/Linux/Raspbian)
-
-[raspberry pi swap](http://www.ncnynl.com/archives/201612/1155.html)
-
-
----
 
 
 
@@ -268,6 +246,7 @@ re.dotAll   //true
 0b11111011 === 503  // true
 0o767 === 503       // true
 
+
 Number('0b111') // 7
 ```
 
@@ -322,3 +301,93 @@ Number.isSafeInteger(9007199254740992)  // false
 
 ## math 对象的扩展
 
+
+1. Math.trunc()
+
+> 用于去除一个数的小数部分，返回整数部分
+
+```es6
+Math.trunc(true)    // 1
+Math.trunc(false)   // 0
+Math.null(null )    // 0
+```
+2. Math.sign()
+
+> 判断一个数到底是正数/负数/还是零
+
+3. Math.cbrt()
+
+>计算一个数的立方根
+
+4. Math.clz32()
+
+> 返回一个数的32位无符号整数形式由多少个前导0
+
+5. Math.imul()
+
+> 返回两个数以32位带符号整数形式相乘的结果
+
+6. Math.fround()
+> 返回一个数的单精度浮点型
+
+7. Math.hypot()
+> 返回所有参数的平方和平方根
+
+8. Math.expml()
+
+> 返回e^x -1 /Math.exp(x) -1
+
+9. Math.loglp()
+
+>Math.log1p(x)方法返回1 + x的自然对数，即Math.log(1 + x)
+
+10. Math.log10()
+
+>Math.log10(x)返回以10为底的x的对数。如果x小于0，则返回NaN
+
+11. Math.log2()
+
+>Math.log2(x)返回以2为底的x的对数。如果x小于0，则返回NaN
+
+12. Math.signbit()
+
+>用来判断一个值的正负，但是如果参数是-0，它会返回-0
+
+13. 指数运算符 **
+
+```es6
+2 ** 3  //8
+
+let a = 4;
+b ** = 3;   // 等同于b = b * b * b;
+```
+
+
+
+---
+## 函数的扩展
+
+
+call apply bind
+
+## 数组
+
+## Symbo
+>第七种数据类型
+
+##Proxy
+
+
+##reflect
+
+##Promicse 异步
+
+##Iterator 遍历器
+
+##Generator 函数的异步
+
+##async Generator的语法糖 2017
+
+##Class 类
+
+##
