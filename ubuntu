@@ -130,6 +130,7 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 2. 在.vimrc 中添加bundle的配置
 
 ```
+
 set nocompatible                " be iMproved
 filetype off                    " required!
 set rtp+=~/.vim/bundle/vundle/
@@ -151,6 +152,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 't9md/vim-quickhl'
 " Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdcommenter'
+
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'scrooloose/nerdtree'
 "..................................
 " vim-scripts repos
 Bundle 'YankRing.vim'
@@ -160,11 +166,26 @@ Bundle 'SudoEdit.vim'
 Bundle 'EasyGrep'
 Bundle 'VOoM'
 Bundle 'VimIM'
+
+" Bundle 'jslint.vim'
+Bundle 'jsflakes'
+Bundle 'mozjs.vim'
+Bundle 'html_FileCompletion'
+Bundle 'html5.vim'
+Bundle 'css3-syntax-plus'
+Bundle 'preview'
+" Bundle 'mark.vim'
+Bundle 'zencoding.vim'
+
+
+
+
 "..................................
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 "......................................
 filetype plugin indent on
+
 ```
 
 3. 安装上面的插件
