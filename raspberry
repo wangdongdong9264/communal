@@ -1,4 +1,16 @@
-[开机后黑屏 只有光标](http://tieba.baidu.com/p/4327845290)
+> etc/apt/sources.list
+
+```
+deb http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib
+deb-src http://mirrors.aliyun.com/raspbian/raspbian/ wheezy main non-free contrib
+```
+
+## 扩展swap
+
+```
+sudo apt-get install dphys-swapfile
+```
+
 
 ## fcitx输入中文时 不显示候选词
 
@@ -10,7 +22,7 @@ sudo apt remove fcitx-module-kimpanel
 
 2. 重启
 
-## nano单模式编辑器
+## nano编辑器
 
 1. 打开或新建一个文件
 
@@ -66,6 +78,14 @@ sudo apt-get install git
 
 ```
 
+## install node
+```
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+sudo apt install nodejs
+
+```
+
 ## install Geany IDE
 
 ```
@@ -81,23 +101,20 @@ epiphany	// start
 ```
 
 
+##安装 vim-gtk
+
+* vim-gtk		// 普通
+* vim-athena	// 绚丽
+* vim-gnome		// 不推荐
 
 
+## install MongoDB
 
+[树莓派下安装MongoDB](http://liaozenghui.com/%E6%A0%91%E8%8E%93%E6%B4%BE/2015/01/16/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8B%E5%AE%89%E8%A3%85MongoDB.html)
 
-
+---
 #other
 
-[raspberry pi on visual studio code](https://www.hanselman.com/blog/BuildingVisualStudioCodeOnARaspberryPi3.aspx)
-[raspberry pi ide](https://blog.idrsolutions.com/2014/12/top-8-ides-programmers-coders-beginners-raspberry-pi/)
-[arm ide developer](https://developer.arm.com/products/software-development-tools/ds-5-development-studio/resources/tutorials/getting-started-with-ds-5-ce-and-armv8-foundation-platform)
-[arduino ide](https://playground.arduino.cc/Linux/Raspbian)
-
-[raspberry pi swap](http://www.ncnynl.com/archives/201612/1155.html)
-
-[ide raspberry](https://linux.cn/article-8885-1.html)
-
-[vs code ](http://dattabase.com/install-vs-code-raspberry-pi-3/)
 
 
 
