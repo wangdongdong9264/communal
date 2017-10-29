@@ -3,7 +3,7 @@
 1. 创建SSH key
 
 ```
-ssh-keyen -t rsa -C "youremail@exapmle.com"
+ssh-kegen -t rsa -C "youremail@exapmle.com"
 ```
 
 >会在C:\Users\用户名\.ssh\目录下生成两个文件id-rsa和id-rsa.pub两个密钥，id-rsa是私钥，id-rsa.pub是公钥
