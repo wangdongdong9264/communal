@@ -148,3 +148,10 @@ git stash apply [workname]  // 恢复但不删除 需git stash drop手动删除
 git stash pop               // 恢复并删除
             
 ```
+
+>  git push origin master时出现Username for 'https://github.com':
+
+```
+git remote set-url origin git+ssh://git@github.com/yourname/reponame.git
+```
+
