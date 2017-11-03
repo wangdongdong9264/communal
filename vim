@@ -39,6 +39,9 @@ N			在反方向上重复上一次搜索命令
 touch			修改档案时间
 
 
+
+
+
 ##进入插入模式的方法
 ```
 i	//在光标的前边
@@ -124,4 +127,119 @@ Ctrl + w + w	将光标切换到下一个文件
 
 Ctrl + w + 上/下/左/右	切换文件
 
+
+> css position
+1. relative 属性相对于它原来的位置进行偏移 偏移量是基于对象的margin的左上角开始计算的
+2. absolute 
+* 如果父对象也设置了position属性且position为absolute/relative 对象会按照父对象进行定位
+* 如果父对象没有position属性 就会以body定位
+* 偏移量基于padding的左上角开始计算
+---
+
+>高度
+1. clientHeight, clientWidth:
+这两个属性大体上显示了元素内容的象素高度和宽度.理论上说这些测量不考虑任何通过样式表加入
+元素中的页边距,边框等.
+
+2. clientLeft,clientTop:
+这两个返回的是元素周围边框的厚度,如果不指定一个边框或者不定位改元素,他的值就是0.
+
+3. scrollLeft,scrollTop:
+如果元素是可以滚动的,可以通过这俩个属性得到元素在水平和垂直方向上滚动了多远,单位是象素.
+对于不可以滚动的元素,这些值总是0.
+
+4. scrollHeight,scrollWidth:
+不管有多少对象在页面上可见,他们得到的是整体.
+
+5. style.left:
+定位元素与包含它的矩形左边界的偏移量
+
+6. style.pixelLeft:
+返回定位元素左边界偏移量的整数像素值.因为属性的非像素值返回的是包含单位的字符串,例如,30px. 利用这个属性可以单独处理以像素为单位的数值.
+
+7. style:posLetf:
+返回定位元素左边界偏移量的数量值,不管相应的样式表元素指定什么单位.因为属性的非位置值返回的是包含单位的字符串,例如,1.2em  
+
+ ---
+ >换行
+
+1. word-break:break-all  会把英文单词截断
+2. word-bread:break-word   自动把整个英文单词放到下一行
+    
+
+
+[raspberry pi 数码显示管](http://shumeipai.nxez.com/2014/10/12/raspberry-pi-drive-four-digital-tube-display-time.html)
+
+[iframe 异步加载](http://kb.cnblogs.com/page/109045/)
+
+```js
+(function(d) {
+    var iframe = d.body.appendChild(d.createElement('iframe')),
+    doc = iframe.contentWindow.document; 
+    // style the iframe with some CSS
+    iframe.style.cssText ="position:absolute;width:200px;height:100px;left:0px;"; 
+    doc.open().write('<body onload="'+
+　　'var d = document;d.getElementsByTagName(\'head\')[0].'+
+　　'appendChild(d.createElement(\'script\')).src'+'=\'\/path\/to\/file\'">');
+    doc.close(); //iframe onload event happens
+})(document);
+```
+
+
+### nvm 安装 和 使用
+
+1. 下载 https://github.com/coreybutler/nvm-windows
+
+2. 安装
+    * nvm 和 nodejs 目录看自己的喜好 nvm会自动添加到path
+
+3. 进入安装的nvm 目录 修改 setting.txt
+
+```
+root: F:\nvm\nvm
+path: F:\nvm\nodejs
+arch: 64
+proxy: none
+nvm node_mirror: https://npm.taobao.org/mirrors/node/
+nvm npm_mirror: https://npm.taobao.org/mirrors/npm/
+```
+
+4. 测试
+```
+nvm -v
+1.1.6
+```
+
+---
+[blog for raspberry pi](http://thejackalofjavascript.com)
+
+
+### ubuntu 拷贝
+1.  拷贝文件
+```
+cp -i filename /url/newfilename
+```
+
+2. 拷贝 文件夹
+```
+cp -r /url/ /newUrl/       // 将url目录下面的所有文件复制到newUrl
+```
+
+### 移动 
+1. 移动文件夹
+```
+mv /url/* /newUrl/      // 将url目录下的所有文件移动到newUrl
+```
+
+### 删除
+1. 删除文件夹
+```
+rm -r /url/         // 将url目录下的所有文件都给删除
+```
+
+
+
+---
+
+[ubuntu 目录结构](http://www.cnblogs.com/candycaicai/archive/2011/02/24/1963640.html)
 
