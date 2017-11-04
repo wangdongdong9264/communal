@@ -128,118 +128,148 @@ Ctrl + w + w	将光标切换到下一个文件
 Ctrl + w + 上/下/左/右	切换文件
 
 
-> css position
-1. relative 属性相对于它原来的位置进行偏移 偏移量是基于对象的margin的左上角开始计算的
-2. absolute 
-* 如果父对象也设置了position属性且position为absolute/relative 对象会按照父对象进行定位
-* 如果父对象没有position属性 就会以body定位
-* 偏移量基于padding的左上角开始计算
+## .vimrc
+
+[vim-script](https://linux.cn/article-8997-1.html)
+
+```
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+
+autocmd vimenter * NERDTree	#vim 启动时自动打开NERDTree
+map <C-n> :NERDTreeToggle<CR>	#Ctrn + n  打开NERDTree
+
+
+let g:nerdtree_tabs_open_on_console_startup=1	#vim 启动时运行NERDTreeTabs
+
+set shell=sh
+let g:NERDTreeShowIgnoredStatus = 1	#显示ignored状态
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Raimondi/delimitMate'	#自动关闭引号/括号
+Bundle 'Shougo/deoplete.nvim',{ 'do': ':UpdateRemotePlugins' }	#自动完成
+
+
+Bundle 'w0rp/ale'		#检查错误
+Bundle 'sheerun/vim-polyglot'	#语言包
+
+let g:ale_linters = {
+\    'javascript': ['eslint'],
+\    'css': ['stylelint'],
+\}
+
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'css': ['stylelint'],
+\}
+
+let g:ale_fix_on_save = 1	#保存后自动修复文件
+let g:ale_sign_column_always = 1	#标志槽打开
+let g:ale_sign_error = '>>'		#错误标志
+let g:ale_sign_warning = '--'		#警告标志
+nmap  <silent>  <Ck>  <Plug>（ale_previous_wrap）	#Ctrl + k 快速导航到错误
+nmap  <silent>  <Cj>  <Plug>（ale_next_wrap）		#Ctrl + j
+
+
+Bundle 'kien/ctrlp.vim'		##搜索
+Bundle 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep'
+
+
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1	#启动vim-airline
+let g:airline_theme='papercolor'		#使用主题
+
+Bundle 'scrooloose/nerdcommenter'
+# <leader>cc // 注释
+# <leader>cm 只用一组符号注释
+# <leader>cA 在行尾添加注释
+# <leader>c$ /* 注释 */
+# <leader>cs /* 块注释 */
+# <leader>cy 注释并复制
+# <leader>c<space> 注释/取消注释
+# <leader>ca 切换　// 和 /* */
+# <leader>cu 取消注释
+let g:NERDSpaceDelims = 1		
+let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {
+            \ 'javascript': { 'left': '//', 'leftAlt': '/**', 'rightAlt': '*/' },
+            \ 'less': { 'left': '/**', 'right': '*/' }
+        \ }
+
+
+Bundle 'airblade/vim-gitgutter'		#git
+Bundle 'tpope/vim-fugitive'
+
+
+Bundle 'suan/vim-instant-markdown'
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0	#:InstantMarkdownPreview 手动触发预览
+
+
+Bundle 'mattn/emmet-vim'		#快捷
+let g:user_emmet_leader_key='<Tab>'
+
+Bundle 'othree/html5.vim'
+
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'ap/vim-css-color'
+augroup VimCSS3Syntax
+  autocmd!
+
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
+
+Bundle 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup  javascript_folding 
+    au ！
+    au  FileType javascript setlocal  foldmethod = syntax 
+augroup  END
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+set conceallevel=1
+
+Bundle 'mxw/vim-jsx'		#react
+let g:jsx_ext_required = 0	
+
+
+
+Bundle 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+#:Prettier
+
 ---
 
->高度
-1. clientHeight, clientWidth:
-这两个属性大体上显示了元素内容的象素高度和宽度.理论上说这些测量不考虑任何通过样式表加入
-元素中的页边距,边框等.
-
-2. clientLeft,clientTop:
-这两个返回的是元素周围边框的厚度,如果不指定一个边框或者不定位改元素,他的值就是0.
-
-3. scrollLeft,scrollTop:
-如果元素是可以滚动的,可以通过这俩个属性得到元素在水平和垂直方向上滚动了多远,单位是象素.
-对于不可以滚动的元素,这些值总是0.
-
-4. scrollHeight,scrollWidth:
-不管有多少对象在页面上可见,他们得到的是整体.
-
-5. style.left:
-定位元素与包含它的矩形左边界的偏移量
-
-6. style.pixelLeft:
-返回定位元素左边界偏移量的整数像素值.因为属性的非像素值返回的是包含单位的字符串,例如,30px. 利用这个属性可以单独处理以像素为单位的数值.
-
-7. style:posLetf:
-返回定位元素左边界偏移量的数量值,不管相应的样式表元素指定什么单位.因为属性的非位置值返回的是包含单位的字符串,例如,1.2em  
-
- ---
- >换行
-
-1. word-break:break-all  会把英文单词截断
-2. word-bread:break-word   自动把整个英文单词放到下一行
-    
-
-
-[raspberry pi 数码显示管](http://shumeipai.nxez.com/2014/10/12/raspberry-pi-drive-four-digital-tube-display-time.html)
-
-[iframe 异步加载](http://kb.cnblogs.com/page/109045/)
-
-```js
-(function(d) {
-    var iframe = d.body.appendChild(d.createElement('iframe')),
-    doc = iframe.contentWindow.document; 
-    // style the iframe with some CSS
-    iframe.style.cssText ="position:absolute;width:200px;height:100px;left:0px;"; 
-    doc.open().write('<body onload="'+
-　　'var d = document;d.getElementsByTagName(\'head\')[0].'+
-　　'appendChild(d.createElement(\'script\')).src'+'=\'\/path\/to\/file\'">');
-    doc.close(); //iframe onload event happens
-})(document);
-```
-
-
-### nvm 安装 和 使用
-
-1. 下载 https://github.com/coreybutler/nvm-windows
-
-2. 安装
-    * nvm 和 nodejs 目录看自己的喜好 nvm会自动添加到path
-
-3. 进入安装的nvm 目录 修改 setting.txt
-
-```
-root: F:\nvm\nvm
-path: F:\nvm\nodejs
-arch: 64
-proxy: none
-nvm node_mirror: https://npm.taobao.org/mirrors/node/
-nvm npm_mirror: https://npm.taobao.org/mirrors/npm/
-```
-
-4. 测试
-```
-nvm -v
-1.1.6
-```
-
----
-[blog for raspberry pi](http://thejackalofjavascript.com)
-
-
-### ubuntu 拷贝
-1.  拷贝文件
-```
-cp -i filename /url/newfilename
-```
-
-2. 拷贝 文件夹
-```
-cp -r /url/ /newUrl/       // 将url目录下面的所有文件复制到newUrl
-```
-
-### 移动 
-1. 移动文件夹
-```
-mv /url/* /newUrl/      // 将url目录下的所有文件移动到newUrl
-```
-
-### 删除
-1. 删除文件夹
-```
-rm -r /url/         // 将url目录下的所有文件都给删除
-```
-
-
-
----
 
 [ubuntu 目录结构](http://www.cnblogs.com/candycaicai/archive/2011/02/24/1963640.html)
 

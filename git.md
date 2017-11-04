@@ -155,3 +155,11 @@ git stash pop               // 恢复并删除
 git remote set-url origin git+ssh://git@github.com/yourname/reponame.git
 ```
 
+## git 开启多颜色输出
+
+```
+git config --global color.status auto
+git config --global color.diff auto
+git config --global color.branch auto
+git config --global color.interactive auto
+```
