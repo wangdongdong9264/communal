@@ -307,3 +307,31 @@ shutdown -h now		//立即关机
 shutdown -r now		//立即重启
 ```
 
+### ubuntu 拷贝
+1.  拷贝文件
+```
+cp -i filename /url/newfilename
+```
+
+2. 拷贝 文件夹
+```
+cp -r /url/ /newUrl/       // 将url目录下面的所有文件复制到newUrl
+```
+
+### 移动 
+1. 移动文件夹
+```
+mv /url/* /newUrl/      // 将url目录下的所有文件移动到newUrl
+```
+
+### 删除
+1. 删除文件夹
+```
+rm -r /url/         // 将url目录下的所有文件都给删除
+```
+
+
+
+---
+[ubuntu 目录结构](http://www.cnblogs.com/candycaicai/archive/2011/02/24/1963640.html)
+

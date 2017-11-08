@@ -3,7 +3,7 @@
 1. 创建SSH key
 
 ```
-ssh-keyen -t rsa -C "youremail@exapmle.com"
+ssh-kegen -t rsa -C "youremail@exapmle.com"
 ```
 
 >会在C:\Users\用户名\.ssh\目录下生成两个文件id-rsa和id-rsa.pub两个密钥，id-rsa是私钥，id-rsa.pub是公钥
@@ -147,4 +147,19 @@ git stash list              // 查看隐藏的工作区
 git stash apply [workname]  // 恢复但不删除 需git stash drop手动删除
 git stash pop               // 恢复并删除
             
+```
+
+>  git push origin master时出现Username for 'https://github.com':
+
+```
+git remote set-url origin git+ssh://git@github.com/yourname/reponame.git
+```
+
+## git 开启多颜色输出
+
+```
+git config --global color.status auto
+git config --global color.diff auto
+git config --global color.branch auto
+git config --global color.interactive auto
 ```
