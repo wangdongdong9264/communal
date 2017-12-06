@@ -333,7 +333,6 @@ Math.null(null )    // 0
 
 7. Math.hypot()
 > 返回所有参数的平方和平方根
-
 8. Math.expml()
 
 > 返回e^x -1 /Math.exp(x) -1
@@ -394,3 +393,5 @@ call apply bind
 ##Class 类
 
 ##
+
+[es6 开发环境搭建](https://zhuanlan.zhihu.com/p/28157089)
