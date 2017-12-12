@@ -120,6 +120,16 @@ sudo apt install nodejs
 
 ```
 
+## get cpu thermal
+
+```
+cd /sys/class/thermal/thermal_zone0
+
+cat temp
+
+```
+
+
 ## install Geany IDE
 
 ```
