@@ -98,6 +98,11 @@ sudo apt-get install php-mysql
 2. 其配置文件路径为/etc/apache2/
 3. 可以通过sudo vi /etc/apache2/ports.conf修改监听端口号
 4. 重启服务生效sudo service apache2 restart
+
+> sudo /etc/init.d/apache2 start	//start server
+> sudo /etc/init.d/apache2 restart	//restart server
+> sudo /etc/init.d/apache2 stop		//stop server
+
 ---
 
 ## install git
@@ -114,6 +119,16 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt install nodejs
 
 ```
+
+## get cpu thermal
+
+```
+cd /sys/class/thermal/thermal_zone0
+
+cat temp
+
+```
+
 
 ## install Geany IDE
 
