@@ -6,7 +6,7 @@
 3. beautify
 4. Bootstrap 4 & Font awesome snippets
 5. Bracket Pair Colorizer
-6. Debugger for Chrome 
+6. Debugger for Chrome
 7. Docker
 8. ESLint
 9. filesize
@@ -26,6 +26,15 @@
 23. vscode-icons
 24. Vue 2 Snippets
 25. VueHelper
+
+26. Canvas Snippets
+27. JavaScript (ES6) snippets
+28. jQuery Code Snippets
+29. Live Server
+30. Partial Diff
+31. Sass
+32. Settings Sync
+33.
 
 
 ```
