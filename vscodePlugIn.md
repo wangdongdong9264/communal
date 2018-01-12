@@ -34,7 +34,13 @@
 30. Partial Diff
 31. Sass
 32. Settings Sync
-33.
+33. Azure Cosmos DB
+34. Code Spell Checker
+35. Node Debug 2
+36. React Native tools
+37. React-Native/react/redux
+38. TSLint
+39. 
 
 
 ```
