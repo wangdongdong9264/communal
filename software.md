@@ -33,6 +33,13 @@
 33. xmind
 34. xunlei
 
+35. PxCook
+36. mobaXterm
+37. Visual Studio Emulator for Android
+38. Adobe Audition
+39. Adobe Photoshop
+40. FileZilla FTP Client
+41.
 
 > uwp
 1. 网易云音乐
