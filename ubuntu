@@ -1,11 +1,22 @@
-##安装
-1. .deb
+#安装
+
+> 修复依赖
+
+```sh
+sudo apt --fix-broken install
 ```
+
+---
+
+1. .deb
+
+```sh
 sudo dpkg -i package_name.deb
 ```
 
 2. .sh
-```
+
+```sh
 ./filename.sh       可安装到当前用户有权限的目录
 sudo ./filename.sh  可安装到任意目录
 sudo sh filename.sh
