@@ -58,3 +58,43 @@ mongod --dbpath YOUDBPATH --port YOUPORT
 
   * 文档（document）
     文档数据库中最小的单位，我们存储和操作的内容都是文档
+
+
+## 基本指令
+
+1. 显示数据库
+
+```sh
+show dbs
+```
+
+2. 进入数据库
+
+```sh
+use databaseName
+```
+
+3. 当前所处的数据库
+
+```sh
+db
+```
+
+4. 显示集合
+
+```sh
+show collection
+```
+
+5. 插入文档`db.<collectionName>.insert(document)`
+
+6. 查询`db.<collectionName>.find()`
+
+## 安装GUI `mongodbmanagerfree`或者`studio 3T`
+
+
+###other
+
+集合和数据库 都不需要手动创建 第一次插入文档时创建
+
+向集合中添加文档时 如果没有给文档指定`_id`属性，则数据库会自动为文档添加`_id` 该属性用来作为文档的唯一标识
