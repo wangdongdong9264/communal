@@ -92,6 +92,38 @@ show collection
 
 ## 安装GUI `mongodbmanagerfree`或者`studio 3T`
 
+### 查询
+
+  ```sh
+  db.<collectionName>.find()
+
+  db.collection.findOne()
+
+  db.collection.find().count() #有多少文档
+  ````
+
+  1. {key:value}
+
+### 修改
+
+  ```sh
+  db.collection.update()
+
+  db.collection.updateMany()
+
+  db.collection.updateOne()
+
+  db.collection.replaceOne() #替换
+  ```
+
+  1. {查询条件,新对象}
+
+  2. $set 用来修改文档中指定属性
+
+  3. $unset 用来删除文档中指定属性
+
+  4. update()默认自会修改一个
+
 
 ###other
 
