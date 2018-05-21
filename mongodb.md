@@ -124,6 +124,21 @@ show collection
 
   4. update()默认自会修改一个
 
+### 删除
+
+  ```sh
+    db.collection.remove()
+
+    db.collection.deleteMany({})   #清空集合 性能差
+  ```
+
+  ```sh
+    db.collection.drop() #删除集合
+
+    db.dropDatabase() # 删除数据库
+  ```
+
+
 
 ###other
 
