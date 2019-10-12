@@ -1,5 +1,7 @@
 # my vscode plug-in
 
+## 比较老了可以忽略
+
 ```txt
 1. Angular v5 snippets
 2. auto rename tag
@@ -40,7 +42,4 @@
 36. React Native tools
 37. React-Native/react/redux
 38. TSLint
-39. 
-
-
 ```

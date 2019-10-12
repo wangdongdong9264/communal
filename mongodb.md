@@ -1,4 +1,4 @@
-# 安装
+# 安装 mongodb
 
 1. 安装
 
@@ -8,41 +8,41 @@
 
 4. 启动
 
-```sh
-mongod
-```
+    ```sh
+    mongod
+    ```
 
 5. 连接
 
-```sh
-mongo
-```
+  ```sh
+  mongo
+  ```
 
 ## 高级启动
 
-```sh
-mongod --dbpath YOUDBPATH --port YOUPORT
-```
+  ```sh
+  mongod --dbpath YOUDBPATH --port YOUPORT
+  ```
 
 ## 将mongodb 设置为系统服务
 
-  1. 安装目录创建配置文件 `mongod.cfg`
+1. 安装目录创建配置文件 `mongod.cfg`
 
-  ```cfg
-  systemLog:
-      destination: file
-      path: e:\data\log\mongod.log
-  storage:
-      dbPath: e:\data\db
-  ```
+    ```cfg
+    systemLog:
+        destination: file
+        path: e:\data\log\mongod.log
+    storage:
+        dbPath: e:\data\db
+    ```
 
-  2. 创建MongoDB服务(admin) 必须cmd,不要用powerShell
+2. 创建MongoDB服务(admin) 必须cmd,不要用powerShell
 
-  ```sh
-  sc.exe create MongoDB binPath= "\"E:\mongoDB\bin\mongod.exe\" --service --config=\"E:\mongoDB\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
-  ```
+    ```sh
+    sc.exe create MongoDB binPath= "\"E:\mongoDB\bin\mongod.exe\" --service --config=\"E:\mongoDB\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
+    ```
 
-  3. 启动
+3. 启动
 
   ```sh
   net start MongoDB
@@ -50,41 +50,40 @@ mongod --dbpath YOUDBPATH --port YOUPORT
 
 ## 三个概念
 
-  * 数据库（database）
+* 数据库（database）
     数据库是一个仓库，在仓库中可以存放集合
 
-  * 集合（collection）
+* 集合（collection）
     集合类似于数组，在集合中可以存放文档
 
-  * 文档（document）
+* 文档（document）
     文档数据库中最小的单位，我们存储和操作的内容都是文档
-
 
 ## 基本指令
 
 1. 显示数据库
 
-```sh
-show dbs
-```
+    ```sh
+    show dbs
+    ```
 
 2. 进入数据库
 
-```sh
-use databaseName
-```
+    ```sh
+    use databaseName
+    ```
 
 3. 当前所处的数据库
 
-```sh
-db
-```
+    ```sh
+    db
+    ```
 
 4. 显示集合
 
-```sh
-show collection
-```
+    ```sh
+    show collection
+    ```
 
 5. 插入文档`db.<collectionName>.insert(document)`
 
@@ -140,12 +139,7 @@ show collection
 
 ### 文档之间关系
 
-
-
-
-
-
-###other
+### other
 
 集合和数据库 都不需要手动创建 第一次插入文档时创建
 

@@ -1,49 +1,48 @@
+# sass 配置
+
 > sass 环境配置
 
 1. 下载
-[安装ruby](https://github.com/sass/sass)
+
+    [安装ruby](https://github.com/sass/sass)
 
 2. 安装 ruby  
 
-* 一定要勾选 添加到PATH
+    * 一定要勾选 添加到PATH
 
 3. 验证ruby安装
 
-* ruby -v
+    * ruby -v
 
 4. 更改gem的源
 
-* 删除默认源 gem sources --remove https://rubygems.org/
+    * 删除默认源 `gem sources --remove https://rubygems.org/`
 
-* 添加国内源 gem sources --add https://gems.ruby-china.org/
+    * 添加国内源 `gem sources --add https://gems.ruby-china.org/`
 
-* 验证    gem sources -l
+    * 验证 gem sources -l
 
 5. 安装sass
 
-* gem install sass
+    * gem install sass
 
-* sass -v
+    * sass -v
 
 6. 安装compass
 
-* gem install compass
+    * gem install compass
 
 7. 创建 compss 项目
 
-* compass create youCompassName
+    * compass create `youCompassName`
 
-8. 监视sass 
+8. 监视sass
 
 * cd youCompassName
 
 * campass watch
 
-
-
-
-
-```
+```sh
 gem update      //更新ruby程序
 
 gem list        //列出本地安装的ruby程序包

@@ -1,3 +1,5 @@
+# 个人常用软件
+
 1. adobe
 2. android studio
 3. atom
@@ -39,9 +41,11 @@
 38. Adobe Audition
 39. Adobe Photoshop
 40. FileZilla FTP Client
-41.
+
+---
 
 > uwp
+
 1. 网易云音乐
 2. it之家
 3. CrystalDiskMark 5
@@ -52,4 +56,3 @@
 8. 格式转换器
 9. 旺信
 10. 微信
-11.  
