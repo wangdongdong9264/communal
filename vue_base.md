@@ -82,5 +82,3 @@ this.message === this._data.message
   4. `Vue.prototype.__patch__` 在浏览器端 指向的是`patch`， 源码位置 `src/platforms/web/runtime/patch.js`
   5. `createPatchFunction` 接收两个参数  `modules` 定义了一些模块的钩子函数， `nodeOps` 封装了一系列dom操作的方法. 最终返回了一个`patch`方法
   6. `patch`方法 接收4个参数. `oldVnode`表示旧的VNode节点， `vnode`表示执行`_render`后返回的VNode节点，`hydrating`表示是否是服务端渲染，`removeOnly`是给`transition-group` 用的
-
-### 组件化
