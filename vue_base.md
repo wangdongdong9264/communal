@@ -1,8 +1,8 @@
 # vue 源码
 
-## book
+## 版本
 
-[book](https://ustbhuangyi.github.io/vue-analysis/prepare/flow.html)
+version 2.6.10
 
 ### src目录结构
 
