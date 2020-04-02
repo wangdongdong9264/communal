@@ -61,3 +61,51 @@ todo：
   transitionTo方法 跳转执行的方法
 
   iterator 函数`src/history/base.js`逻辑：执行每一个导航守卫hook，并传入route，current，匿名函数，这三个参数分别对应官方文档中的to, from, next。执行匿名函数会根据一些条件执行abort或next，只有执行到next才会进到下一个导航守卫函数中
+
+完整的导航解析流程 [官方地址](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AF%BC%E8%88%AA%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B)
+
+
+导航被触发。
+在失活的组件里调用离开守卫。
+调用全局的 beforeEach 守卫。
+在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
+在路由配置里调用 beforeEnter。
+解析异步路由组件。
+在被激活的组件里调用 beforeRouteEnter。
+调用全局的 beforeResolve 守卫 (2.5+)。
+导航被确认。
+调用全局的 afterEach 钩子。
+触发 DOM 更新。
+用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
+
+---
+
+url变化（hash模式）
+
+源码位置：`src/history/hash.js`
+
+监听路由变化
+
+```js
+window.addEventListener(
+  supportsPushState ? 'popstate' : 'hashchange',
+  () => {
+    const current = this.current
+    if (!ensureSlash()) {
+      return
+    }
+    this.transitionTo(getHash(), route => {
+      if (supportsScroll) {
+        handleScroll(this.router, route, current, true)
+      }
+      if (!supportsPushState) {
+        replaceHash(route.fullPath)
+      }
+    })
+  }
+)
+```
+
+ensureSlash()方法 用来将`http://lcoalhost:8080`修改成`http://lcoalhost:8080/#/`
+
+过程
