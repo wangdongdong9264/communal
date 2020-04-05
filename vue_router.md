@@ -118,7 +118,7 @@ window.addEventListener(
   4.  window.location.replace() 这时url为`http://lcoalhost:8080/#/`
 
 
-#### <router-view>组件
+#### `<router-view>`组件
 
 源码位置： src/components/view.js
 
@@ -138,7 +138,7 @@ this.$route 实际上是访问到 `this._router.history.current`
  `history.transitionTo`结束后（路径发生变化）， 变化后就会进行`app._route`的赋值（触发set 》 重新渲染）
 
 
-#### <router-link>组件
+#### `<router-link>`组件
 
 位置：`src/components/link.js`
 
