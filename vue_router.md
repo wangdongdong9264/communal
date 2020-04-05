@@ -6,9 +6,9 @@
 
 支持三种路由方式
 
-  1. hash
-  2. history
-  3. abstract
+  1. hash: 使用 URL hash 值来作路由。默认模式
+  2. history: 依赖 HTML5 History API 和服务器配置
+  3. abstract: 支持所有 JavaScript 运行环境，如 Node.js 服务器端
 
 提供了2种组件
 
