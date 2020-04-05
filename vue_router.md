@@ -15,7 +15,7 @@
   1. router-link
   2. router-view
 
-#### 路由注册
+## 路由注册
 
 todo: 1. vue插件的注册原理 2. 组册的流程
 
@@ -27,7 +27,7 @@ todo: 1. vue插件的注册原理 2. 组册的流程
   2. vue-router的install方法会给每一个组件注入(Vue.mixin) beforeCreated和destoryed钩子函数
   3. 在 beforeCreated做一些私有属性定义和路由初始化工作
 
-#### vueRouter对象
+## vueRouter对象
 
 todo：1. vueRouter对象的属性和方法 2. 初始化逻辑
 
@@ -37,7 +37,7 @@ todo：1. vueRouter对象的属性和方法 2. 初始化逻辑
   2. 执行到beforeCreated钩子函数时会执行router.init方法
   3. history.transitionTo方法做路由过渡
 
-#### matcher
+## matcher
 
 地址： src/create-matcher.js
 
@@ -50,7 +50,7 @@ reuter配置中有通配符`*` 会将它移动到最后
   1. createMatcher的初始化就是根据路由的配置描述创建映射表，包括路径/名称到路由record的映射关系
   2. match会根据传入的位置和路径计算出新位置，并比配到对应的路由record，然后根据新的位置和record创建新的路径并返回
 
-#### 路径切换（导航守卫）
+## 路径切换（导航守卫）
 
 todo：
 
@@ -65,22 +65,22 @@ todo：
 完整的导航解析流程 [官方地址](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AF%BC%E8%88%AA%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B)
 
 
-导航被触发。
-在失活的组件里调用离开守卫。
-调用全局的 beforeEach 守卫。
-在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
-在路由配置里调用 beforeEnter。
-解析异步路由组件。
-在被激活的组件里调用 beforeRouteEnter。
-调用全局的 beforeResolve 守卫 (2.5+)。
-导航被确认。
-调用全局的 afterEach 钩子。
-触发 DOM 更新。
-用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
+1. 导航被触发。
+2. 在失活的组件里调用离开守卫。
+3. 调用全局的 beforeEach 守卫。
+4. 在重用的组件里调用 beforeRouteUpdate 守卫 (2.2+)。
+5. 在路由配置里调用 beforeEnter。
+6. 解析异步路由组件。
+7. 在被激活的组件里调用 beforeRouteEnter。
+8. 调用全局的 beforeResolve 守卫 (2.5+)。
+9. 导航被确认。
+10. 调用全局的 afterEach 钩子。
+11. 触发 DOM 更新。
+12. 用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
 
 ---
 
-#### url变化（hash模式）
+## url变化（hash模式）
 
 源码位置：`src/history/hash.js`
 
@@ -118,7 +118,7 @@ window.addEventListener(
   4.  window.location.replace() 这时url为`http://lcoalhost:8080/#/`
 
 
-#### `<router-view>`组件
+## `router-view`组件
 
 源码位置： src/components/view.js
 
@@ -138,7 +138,7 @@ this.$route 实际上是访问到 `this._router.history.current`
  `history.transitionTo`结束后（路径发生变化）， 变化后就会进行`app._route`的赋值（触发set 》 重新渲染）
 
 
-#### `<router-link>`组件
+## `router-link`组件
 
 位置：`src/components/link.js`
 
@@ -169,6 +169,6 @@ todo:
 replace参数 ? router.replace() :  router.push()
 
 
-### 总结
+## 总结
 
 路由始终会维护当前的线路，路由切换的时候会把当前线路切换到目标线路，切换过程中会执行一系列的导航守卫钩子函数，会更改url，也会渲染对应的组件，切换完毕后会把目标线路替换当前线路，这样就会作为下一次切换路径的依据
