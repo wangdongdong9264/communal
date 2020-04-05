@@ -80,11 +80,11 @@ todo：
 
 ---
 
-url变化（hash模式）
+#### url变化（hash模式）
 
 源码位置：`src/history/hash.js`
 
-监听路由变化
+监听路由变化 `popstate` / `hashchange`
 
 ```js
 window.addEventListener(
@@ -106,6 +106,69 @@ window.addEventListener(
 )
 ```
 
-ensureSlash()方法 用来将`http://lcoalhost:8080`修改成`http://lcoalhost:8080/#/`
+哈希模式下`http://lcoalhost:8080`变成`http://lcoalhost:8080/#/`
 
-过程
+原因：实例化`HashHistory`时会执行`ensureSlash()`方法
+
+过程:
+
+  1. ensureSlash() 此时url为`http://lcoalhost:8080`
+  2. ensureSlash的path这时候为空 内部进入replaceHash('/' + path) 此时url为`http://lcoalhost:8080`
+  3. 哈希模式所以supportsPushState为false 进入getUrl() 此时url为`http://lcoalhost:8080`
+  4.  window.location.replace() 这时url为`http://lcoalhost:8080/#/`
+
+
+#### <router-view>组件
+
+源码位置： src/components/view.js
+
+todo:
+  1. router-view如何知道渲染什么组件
+
+在install（src/install.js）方法注册 `RouterView`和`RouterLink`组件
+
+RouterView是一个函数式组件
+
+this.$route 实际上是访问到 `this._router.history.current`
+
+路由切换的核心 `Vue.util.defineReactive(this, '_route', this._router.history.current)`
+
+`this.$route`是响应式的, router-view在执行render函数会访问`$route`，然后触发`this._router`的get
+
+ `history.transitionTo`结束后（路径发生变化）， 变化后就会进行`app._route`的赋值（触发set 》 重新渲染）
+
+
+#### <router-link>组件
+
+位置：`src/components/link.js`
+
+todo:
+  1. router-link如何变成<a>标签
+  2. 点击时如何做路径切换
+
+通过 `router.resolve`计算出新路径
+处理class 优先级：当前传入的class 》全局 》默认
+  * globalActiveClass == null ? 'router-link-active' : globalActiveClass
+  * globalExactActiveClass == null ? 'router-link-exact-active' : globalExactActiveClass
+  * this.activeClass == null ? activeClassFallback : this.activeClass
+  * this.exactActiveClass == null ? exactActiveClassFallback : this.exactActiveClass
+处理事件，默认点击事件click
+处理标签
+  1. 如果是a标签 直接赋值href
+  2. 如果不是就通过`findAnchor`方法递归找子节点的a标签
+    * 找不到就不会赋值href（因为没啥意义）
+  3. 渲染a标签
+
+点击router-link时会执行`handler`方法
+通过guardEvent()进行一层过滤
+  1. 不能使用控制键重定向
+  2. 不要在调用preventDefault时重定向
+  3. 不要右键单击重定向
+  4. 如果`target =“ _ blank”`不要重定向
+  5. e.preventDefault()
+replace参数 ? router.replace() :  router.push()
+
+
+### 总结
+
+路由始终会维护当前的线路，路由切换的时候会把当前线路切换到目标线路，切换过程中会执行一系列的导航守卫钩子函数，会更改url，也会渲染对应的组件，切换完毕后会把目标线路替换当前线路，这样就会作为下一次切换路径的依据
