@@ -110,6 +110,8 @@ if (rawModule.modules) {
 
   getters: 没有namespace就直接返回 root storede的getters 否则返回`makeLocalGetters`方法
 
+  state: 通过`getNestedState`方法 从 root state 开始，通过 path.reduce 方法一层层查找子模块 state，最终找到目标模块的 state
+
   ```js
   Object.defineProperties(local, {
     getters: {
@@ -136,3 +138,24 @@ if (rawModule.modules) {
     3. 先判断type是否匹配 namespace
     4. 只有匹配的时候才从 namespace.length 的位置截取 得到`localType`
     5. 接着用 Object.defineProperty 定义 `gettersProxy` 获取 localType (实际上是获取 `store.getters[type]` )
+
+
+`getNestedState`函数  path.reduce查找子模块 最终找到目标模块
+
+  ```js
+
+  path.reduce((state, key) => state[key], state)
+
+  ```
+
+遍历模块中子模块（modules），然后递归执行`installModule`
+
+`resetStoreVM`函数
+
+    参数：
+      1. this
+      2. state
+
+    作用：
+      1. 建立 `getters` 和 `state`的联系, 本质上getters依赖state
+      2. 利用了 Vue 中用 `computed` 计算属性来实现
