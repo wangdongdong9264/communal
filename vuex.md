@@ -159,3 +159,10 @@ if (rawModule.modules) {
     作用：
       1. 建立 `getters` 和 `state`的联系, 本质上getters依赖state
       2. 利用了 Vue 中用 `computed` 计算属性来实现
+
+
+
+## 总结
+
+  store 就是是一个数据仓库，为了方便的管理仓库，vuex把一个大的store拆成一些modules(一个树形结构)。每个module分别定义了`state`, `getters`, `mutations`, `actions`。
+  vuex通过递归遍历module的方式完成了初始化
