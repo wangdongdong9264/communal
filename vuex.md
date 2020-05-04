@@ -160,9 +160,36 @@ if (rawModule.modules) {
       1. 建立 `getters` 和 `state`的联系, 本质上getters依赖state
       2. 利用了 Vue 中用 `computed` 计算属性来实现
 
+```js
 
+store._vm = new Vue({
+  data: {
+    $$state: state
+  },
+  computed
+})
+
+
+get state () {
+   return this._vm._data.$$state
+ }
+
+```
+
+当我们访问 store.state 时 实际上访问的 `this._vm._data.$$state`
 
 ## 总结
 
   store 就是是一个数据仓库，为了方便的管理仓库，vuex把一个大的store拆成一些modules(一个树形结构)。每个module分别定义了`state`, `getters`, `mutations`, `actions`。
   vuex通过递归遍历module的方式完成了初始化
+
+## 其它
+
+```js
+
+this._committing = true
+// store._commiting = true
+// store.state.xxx = xxxx
+```
+
+将`_commiting`修改`true`就可以进行外部修改 不用`commit()`方法（不推荐 这只是一个hack写法）
