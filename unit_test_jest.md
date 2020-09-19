@@ -81,7 +81,27 @@
 
 ### vue/test-utils
 
-  vue官方的单元测试库
+vue官方的单元测试库
+
+api:
+
+  1. mount
+    创建一个包含被挂载和渲染的 Vue 组件的 Wrapper
+
+  2. shallowMount
+    和 mount 一样，创建一个包含被挂载和渲染的 Vue 组件的 Wrapper (shallowMount渲染的子组件是假的，也就是只mount了这一层)
+
+  3. render
+    将一个对象渲染成为一个字符串并返回一个 cheerio 包裹器
+    在底层使用 vue-server-renderer (做过VueSSR的应该对这个不陌生吧) 将一个组件渲染为静态的 HTML
+
+  4. renderToString
+    将一个组件渲染为 HTML
+
+  5. createWrapper
+    createWrapper 为一个被挂载的 Vue 实例或一个 HTML 元素创建一个 Wrapper
+    类似于写函数式组件
+
 
 
 ### jest
@@ -91,6 +111,14 @@
 ## vue js
 
 ## vue TS
+
+[在已经创建的项目安装](https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest)
+
+```bash
+
+vue add unit-jest
+
+```
 
 ### 安装
 
