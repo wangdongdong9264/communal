@@ -106,9 +106,29 @@ api:
 
 ### jest
 
+常用的检查
+
+1. toBe() 用于检验基本数据类型的值是否相等
+2. toEqual() 用于检验引用数据类型的值，由于js本身object数据类型的本身特性，引用数据类型对比只是指针的对比，但是需要对比对象的每个值，所以这时候用到的是toEqual()
+3. Truthiness 布尔值判断的匹配器
+4. toBeNull 只匹配 null
+5. toBeUndefined 只匹配 undefined
+6. toBeDefined 与 toBeUndefined 相反
+7. toBeTruthy 匹配任何 if 语句为真
+8. toBeFalsy 匹配任何 if 语句为假
+9. 数字匹配器 用于判断数字值之间的对比
+10. toBeGreaterThan 大于匹配器
+11. toBeGreaterThanOrEqual 大于等于匹配器
+12. toBeLessThan 小于匹配器
+13. toBeLessThanOrEqual 小于等于匹配器
+14. tobe 和 toequal 都是等价功能相同的对于数字
+15. toMatch 字符串匹配器 和字符串的match相同
+16. toContain 数组匹配器 用于判断数组中是否包含某些值
+17. toThrow 报错匹配器 用于测试特定的抛出错误，可以判断报错语句的文字（支持正则匹配），也可以判断报错类型。
 
 
 ## vue js
+
 
 ## vue TS
 
