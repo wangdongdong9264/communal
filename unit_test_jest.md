@@ -103,7 +103,9 @@ describe("number test", ()=>{
 
 ### coverageReporters
 
-覆盖率报告生成方式(默认是在命令行输出建议将值改成 html)
+覆盖率报告生成方式(默认是在命令行输出建议将值改成 `[html]`)
+改成html后 项目跟目录下会生成一个`coverage`目录  `/coverage/index.html`就是对代码覆盖率的总结说明
+
 
 ## 常用的一些测试
 
