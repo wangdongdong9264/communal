@@ -97,6 +97,14 @@ describe("number test", ()=>{
 
 一组全局变量，需要在所有测试环境中使用
 
+### collectCoverage
+
+指示在执行测试时是否应收集覆盖率信息(简单说就是开启覆盖率)
+
+### coverageReporters
+
+覆盖率报告生成方式(默认是在命令行输出建议将值改成 html)
+
 ## 常用的一些测试
 
 ### vue/test-utils
