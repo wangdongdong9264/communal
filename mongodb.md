@@ -154,3 +154,69 @@ vim /etc/mongod.conf
 sudo service mongod restart # 别忘了重启
 
 ```
+
+### 配置用户密码
+
+对数据库进行访问控制
+默认情况下，MongoDB并没有配置账号和密码，黑客只要登陆你的服务器之后可以直接查看数据库
+
+```sh
+# 创建 用户名为dongdong 密码为 9264
+use admin
+
+db.createUser(
+  {
+    user: "dongdong",
+    pwd: "9264",
+    roles: [
+      {
+        role: "userAdminAnyDatabase",
+        db: "admin"
+      },
+      "readWriteAnyDatabase"
+    ]
+  }
+)
+
+# root
+
+db.createUser(
+  {
+    user: "root",
+    pwd: "9264",
+    roles:[
+      {
+        role:"root",
+        db:"admin"
+      }
+    ]
+  }
+)
+
+```
+
+创建完成后修改配置文件 `/etc/mongod.conf` linux 为例
+将`security.authorization`设置为`enabled`
+
+```sh
+
+security:
+  authorization: enabled
+
+```
+
+重启服务
+
+```sh
+
+sudo service mongod restart
+
+```
+
+再次链接mongodb
+
+```sh
+
+mongo -u "dongdong" -p "9264" --authenticationDatabase "admin"
+
+```
