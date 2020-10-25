@@ -230,16 +230,382 @@ npm install --save-dev jest @vue/test-utils vue-jest ts-jest @vue/cli-plugin-uni
 
 ### 内部状态
 
+```html
+
+<template>
+  <div class="asyncComponent">
+    <p v-if="!loading" class="data">数据: {{ num }}</p>
+    <p v-else class="loading">请求数据中...</p>
+    <div @click="btn" id="btn">点我数据++</div>
+  </div>
+</template>
+<script lang="ts">
+import { Prop, Component, Emit, Vue } from 'vue-property-decorator'
+import { getData, getList } from '@/utils/promise'
+
+@Component
+export default class asyncComponent extends Vue {
+  num = 0
+  loading = true
+
+  btn () {
+    this.num++
+  }
+  asyncBtn () {
+    getList().then((res) => {
+      this.num = res
+    })
+    return getList()
+  }
+
+  init () {
+    getData().then(res => {
+      this.num = res
+    }).catch(e => {
+      console.error(e)
+    }).finally(() => {
+      this.loading = false
+    })
+
+    return getData()
+  }
+
+  mounted () {
+    this.init()
+  }
+}
+</script>
+<style scoped>
+.asyncComponent{
+
+}
+</style>
+
+```
+
+```ts
+
+import { mount } from '@vue/test-utils'
+import Vue from 'vue'
+import asyncComponent from '@/components/asyncComponent.vue'
+
+describe('asyncComponent', () => {
+  // 测试 mounted getData
+  it('rander test', () => {
+    const wrapper = mount(asyncComponent, {
+      data () {
+        return {
+          num: 100
+        }
+      }
+    })
+
+    expect(wrapper.classes()).toContain('asyncComponent')
+  })
+
+  it('test mounted num', async () => {
+    const wrapper = mount(asyncComponent)
+    const result = await (wrapper.vm as any).init()
+    expect(result).toBe(3)
+    expect((wrapper.vm as any).num).toBe(3)
+  })
+
+  it('test btn click', async () => {
+    const wrapper = mount(asyncComponent, {
+      data () {
+        return {
+          loading: false
+        }
+      }
+    })
+    wrapper.find('div#btn').trigger('click')
+    expect((wrapper.vm as any).num).toBe(1)
+    await Vue.nextTick()
+    expect(wrapper.find('.data').text()).toContain('1')
+  })
+  it('test UI test', async () => {
+    const wrapper = mount(asyncComponent)
+    const result = await (wrapper.vm as any).init()
+    expect(result).toBe(3)
+    await Vue.nextTick()
+    expect((wrapper.vm as any).loading).toBeFalsy()
+    expect(wrapper.find('.data').text()).toContain('数据: 3')
+  })
+})
+
+
+```
+
+
 ### 组件通讯
+
+主要是用`setProps`
+
+```ts
+// Foo.vue
+export default {
+  props: {
+    foo: {
+      type: String,
+      required: true
+    }
+  }
+}
+
+```
+
+```ts
+
+import { mount } from '@vue/test-utils'
+import Foo from './Foo.vue'
+
+test('setProps demo', async () => {
+  const wrapper = mount(Foo)
+
+  await wrapper.setProps({ foo: 'bar' })
+
+  expect(wrapper.vm.foo).toBe('bar')
+})
+
+```
 
 ### 异步操作
 
+```ts
+import { mount } from '@vue/test-utils'
+import Vue from 'vue'
+import asyncComponent from '@/components/asyncComponent.vue'
+
+describe('asyncComponent', () => {
+  it('test UI test', async () => {
+    const wrapper = mount(asyncComponent)
+    const result = await (wrapper.vm as any).init()
+    expect(result).toBe(3)
+    await Vue.nextTick()
+    expect((wrapper.vm as any).loading).toBeFalsy()
+    expect(wrapper.find('.data').text()).toContain('数据: 3')
+  })
+})
+
+```
+
 ### 路由切换
 
+```html
+
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
+
+
+```
+
+```ts
+
+import { shallowMount, mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import VueRouter, { Route } from 'vue-router'
+import App from '@/App.vue'
+import routes from '@/router'
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
+
+function beforeEach (to:any, from:any, next:any) {
+  next()
+}
+
+describe('app.vue router test', () => {
+  it('two router', () => {
+    const wrapper = shallowMount(App, {
+      localVue,
+      stubs: {
+        RouterLink: RouterLinkStub
+      }
+    })
+    expect(wrapper.findAllComponents(RouterLinkStub).length).toBe(2)
+  })
+
+  it('router-link test', () => {
+    const wrapper = mount(App, {
+      localVue,
+      stubs: {
+        RouterLink: RouterLinkStub,
+        RouterView: true
+      }
+    })
+    const routerLinks = wrapper.findAllComponents(RouterLinkStub)
+    const routerHome = routerLinks.at(0)
+    const routerAbout = routerLinks.at(1)
+    expect(routerHome.props().to).toMatch('/')
+    expect(routerAbout.props().to).toMatch('/about')
+  })
+
+  it('route jump about', async () => {
+    const wrapper = shallowMount(App, {
+      localVue,
+      router: routes
+    })
+    await routes.push('/about')
+    // const pa = wrapper.findComponent({ name: 'about' })
+    // expect(pa.classes('about')).toBe(true)
+    expect(routes.currentRoute.path).toMatch('/about')
+  })
+})
+
+describe('beforeEach test', () => {
+  it('global route', async () => {
+    const to = { name: 'about' }
+    const from = { name: 'home' }
+    const next = jest.fn()
+    beforeEach(to, from, next)
+    routes.beforeEach(beforeEach)
+    const wrapper = shallowMount(App, {
+      localVue,
+      router: routes
+    })
+    expect(routes.currentRoute.path).toMatch('/about')
+    // 建议在单元测试内 new Router 避免上次测试污染
+    // await routes.push(to)
+    // expect(next).toBeCalled()
+    // expect(routes.currentRoute.path).toMatch('/about')
+    await routes.push(from)
+    expect(next).toBeCalled()
+    expect(routes.currentRoute.path).toMatch('/')
+  })
+})
+
+
+```
+
 ### 状态管理
+
+```html
+
+<template>
+  <div>
+    <h2>{{ title }}</h2>
+    <p>{{ str }}</p>
+    <p class="test">this is vuex {{ foo }}</p>
+  </div>
+</template>
+<script lang="ts">
+import { Component, Vue, Prop } from 'vue-property-decorator'
+import { State, Action, Mutation, Getter, namespace } from 'vuex-class'
+import { getModule } from 'vuex-module-decorators'
+import store from '../store'
+import Home from '../store/modules/home'
+
+const someModule = namespace('Home')
+// const vuexLogin = namespace('Login')
+const home = getModule(Home, store)
+
+@Component
+export default class asyncT extends Vue {
+  @Prop({ default: 'xxx' }) readonly str!: string
+  readonly title:string = '这是一个异步组件'
+
+  // @State private foo!: number; // 同名
+  // @State('foo') private stateFoo!: number; // 重命名
+
+  @someModule.State private foo!: number
+  @someModule.Getter private axles!: number
+
+  // @someModule.Action('ActionMeth') ActionMeth:any
+
+  // @namespace('Home').Action('ActionMeth')
+  // private ActionMeth!: () => void
+
+  @namespace('Home').Mutation('MutationMeth')
+  private MutationMeth!: () => void
+
+  mounted () {
+    this.MutationMeth()
+    // home.ActionMeth().then(v => {
+    //   console.log(v)
+    // })
+    // this.ActionMeth()
+    // setTimeout(() => {
+    //   // this.ActionMeth()
+    //   this.$store.dispatch('Home/ActionMeth')
+    // }, 1000)
+    setTimeout(() => {
+      home.ActionMeth().then(v => {
+        console.log(v)
+      })
+    }, 1000)
+  }
+}
+</script>
+
+
+```
+
+```ts
+
+import { mount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import Vue from 'vue'
+import store from '@/store/index'
+import asyncT from '@/components/asyncT.vue'
+
+describe('vuex asynct test', () => {
+  const localVue = createLocalVue()
+  localVue.use(Vuex)
+  // store 建议在这里new
+  const wrapper = mount(asyncT, {
+    localVue,
+    store
+  })
+  const vm = wrapper.vm
+
+  it('default store.home test', async () => {
+    expect(store.state.Home.foo).toBe(11)
+    await Vue.nextTick()
+    expect(wrapper.get('p').text()).toEqual('xxx')
+    expect(wrapper.get('.test').text()).toEqual('this is vuex 11')
+  })
+})
+
+```
 
 ## node
 
 ## webpack
 
 ## mongodb
+
+## 其它
+
+参考
+
+[jest](https://jestjs.io/docs/en/getting-started)
+
+[vue-test-utils](https://vue-test-utils.vuejs.org/zh/)
