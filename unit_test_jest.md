@@ -51,6 +51,36 @@ describe("number test", ()=>{
 
 ## jest配置文件 jest.config.js
 
+```js
+
+module.exports = {
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'json',
+    'vue',
+    'ts',
+    'tsx'
+  ],
+  transform: {
+    '^.+\\.vue$': 'vue-jest',
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  },
+  testMatch: [ '**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)' ],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  },
+
+  preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
+  collectCoverage: true,
+  coverageReporters: [
+    'html'
+  ]
+}
+
+```
+
 ### moduleFileExtensions
 
 测试文件的类型
@@ -181,16 +211,32 @@ vue add unit-jest
 
 ```
 
+可能会出现版本问题
+```bash
+yarn add -D babel-core@7.0.0-bridge.0
+
+```
+
 ### 安装
 
 [官方安装](https://vue-test-utils.vuejs.org/zh/installation/testing-single-file-components-with-jest.html)
 
 ```bash
 
-npm install --save-dev jest @vue/test-utils vue-jest ts-jest
+npm install --save-dev jest @vue/test-utils vue-jest ts-jest @vue/cli-plugin-unit-jest
 
 ```
 
+
+### 内部状态
+
+### 组件通讯
+
+### 异步操作
+
+### 路由切换
+
+### 状态管理
 
 ## node
 
