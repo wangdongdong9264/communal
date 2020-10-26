@@ -1,4 +1,4 @@
-# 基本
+# git 基本
 
 1. 创建SSH key
 
@@ -152,14 +152,122 @@ git stash pop               // 恢复并删除
 > git push origin master时出现Username for 'https://github.com':
 
 ```sh
+
 git remote set-url origin git+ssh://git@github.com/yourname/reponame.git
+
 ```
 
 ## git 开启多颜色输出
 
 ```sh
+
 git config --global color.status auto
 git config --global color.diff auto
 git config --global color.branch auto
 git config --global color.interactive auto
+
+```
+## 提交规范
+
+1. husky
+2. lint-staged
+3. Eslint
+4. Prettier
+5. @commitlint/config-conventional @commitlint/cli
+6. commitizen cz-conventional-changelog
+
+安装 husky
+
+```sh
+
+yarn add -D husky lint-staged
+
+yarn add -D @commitlint/{config-conventional,cli}
+
+```
+
+在package.json 添加配置
+
+```json
+
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  }
+}
+
+```
+
+添加 `.commitlintrc.json` 配置文件
+
+[commitlint 官方文档](https://commitlint.js.org/#/)
+
+```json
+{
+  "extends":[
+    "@commitlint/config-conventional"
+  ],
+  "rules": {
+    "body-leading-blank": [1, "always"],
+    "footer-leading-blank": [1, "always"],
+    "header-max-length": [2, "always", 72],
+    "scope-case": [2, "always", "lower-case"],
+    "subject-case": [
+        2,
+        "never",
+        ["sentence-case", "start-case", "pascal-case", "upper-case"]
+    ],
+    "subject-empty": [2, "never"],
+    "subject-full-stop": [2, "never", "."],
+    "type-case": [2, "always", "lower-case"],
+    "type-empty": [2, "never"],
+    "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "perf",
+          "css",
+          "style",
+          "refactor",
+          "revert",
+          "docs",
+          "chore",
+          "types",
+          "test",
+          "wip"
+        ]
+    ]
+  }
+}
+```
+
+添加 commitizen 提交工具
+
+```sh
+
+yarn add -D commitizen cz-conventional-changelog
+
+```
+
+配置 cz
+
+```json
+
+{
+  "path": "cz-conventional-changelog"
+}
+
+```
+
+在package.json 添加提交配置
+
+```json
+
+"scripts": {
+  "commit": "cz"
+}
+
 ```
