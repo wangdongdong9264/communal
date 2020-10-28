@@ -207,7 +207,7 @@ jest.fn()是创建Mock函数最简单的方式，如果没有定义函数内部�
 
 ```bash
 
-vue add unit-jest
+vue add @vue/unit-jest
 
 ```
 
