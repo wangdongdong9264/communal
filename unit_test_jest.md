@@ -200,6 +200,61 @@ jest.fn()是创建Mock函数最简单的方式，如果没有定义函数内部�
 
 ## vue js
 
+在`package.json`中定义一个单元测试脚本
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+安装 vue-jest 预处理器并配置jest
+
+```bash
+
+yarn add -D vue-jest
+```
+
+```js
+module.exports = {
+  moduleFileExtensions: ['js', 'json', 'vue'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  },
+  transform: {
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest'
+  },
+}
+```
+
+开始写单元测试
+
+```js
+import Vue from 'vue'
+import xxx from '@/components/xxx.vue'
+
+const Constructor = Vue.extend(xxx)
+const vm = new Constructor().$mount()
+test('是一个 Vue 实例', () => {
+  expect(vm.loading.toBeTruthy()
+})
+
+// 或者使用官方的vue-test-utils 例如下面
+
+import { mount } from '@vue/test-utils'
+import Component from './component/xxx.vue'
+
+describe('Component', () => {
+  test('是一个 Vue 实例', () => {
+    const wrapper = mount(Component)
+    expect(wrapper.isVueInstance()).toBeTruthy()
+  })
+})
+```
+
 
 ## vue TS
 
