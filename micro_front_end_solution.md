@@ -61,7 +61,32 @@ npm install @webcomponents/webcomponentsjs
 
 ## qiankun
 
+最早成型且知名度最广的单页微前端框架
+
+特点(这里就直接引用官方):
+
+  1. 基于`single-spa`封装, 提供了开箱即用的api
+  2. 技术栈无关, 任意技术栈的应用均可 使用/接入
+  3. `html entry`接入方式，让你接入微应用像使用 iframe 一样简单
+  4. 样式隔离, 确保微应用之间样式互相不干扰
+  5. JS 沙箱, 确保微应用之间 全局变量/事件 不冲突
+  6. 资源预加载, 在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度
+  7. umi 插件，提供了 `@umijs/plugin-qiankun` 供 umi 应用一键切换成微前端架构系统
+
 ## EMP
+
+新起之秀(第一次听到这个框架是在某个大会上), 除了具备微前端的能力外, 还实现了跨应用状态共享, 跨框架组件到能力,这些是qiankun没有的
+
+特点:
+
+  1. 基于webpack5的`Module Federation`, 达到第三方依赖共享,减少不必要的代码引入
+  2. 每个微应用独立部署运行, 通过cdn的方式引入主程序中, 因此每个微应用中的代码有变动时，无需重新打包发布新的整合应用便能加载到最新的微应用
+  3. 去中心化(区别于qiankun), 每个微应用间都可以引入其它微应用, 无基座概念
+  4. 跨技术栈组件式调用，提供了在主应用框架中可以调用其他框架组件的能力
+  5. 按需加载，开发者可以选择只加载微应用中需要的部分，而不是强制只能将整个应用全部加载
+  6. 应用间通信，每一个应用都可以进行状态共享，就像在使用npm模块进行开发一样便捷
+  7. 生成对应技术栈模板，它能像cerate-react-app一样，也能像create-vue-app一样，通过指令一键搭建好开发环境，减少开发者的负担
+  8. 远程拉取ts声明文件，emp-cli中内置了拉取远程应用中代码声明文件的能力，让使用ts开发的开发者不再为代码报错而烦恼
 
 ### 其它
 
@@ -76,3 +101,11 @@ npm install @webcomponents/webcomponentsjs
 [11 Micro Frontends Frameworks](https://itnext.io/11-micro-frontends-frameworks-you-should-know-b66913b9cd20)
 
 [qiankun 官网](https://qiankun.umijs.org/zh)
+
+[早早聊大会 微前端专场](https://www.yuque.com/docs/share/403a1c32-0677-4223-9190-15ac00fd01b1)
+
+[早早聊大会 EMP专场](https://www.yuque.com/zaotalk/posts/zkoo9p)
+
+[emp github](https://github.com/efoxTeam/emp)
+
+[SPA 与 MPA 的比较与优化](https://set.sh/post/180804-spa-and-mpa)
