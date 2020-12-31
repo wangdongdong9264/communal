@@ -48,15 +48,57 @@ TypeScript 编译器源文件位于 `src/compiler` 目录下
 
 1. 编译器
   1. 工具
-    1. 工具函数
-    2. 文件操作
-    3. 内部工具
+    1. 工具函数 core.ts
+    2. 文件操作 sys.ts
+    3. 内部工具 utilities.ts
   2. 语法解析
-    1. 词法分析
-    2. 语法分析
+    1. 词法分析(扫描器) scanner.ts
+    2. 语法分析(解析器) parser.ts
   3. 语意分析
-    1. 作用域分析
-    2. 类型检查
+    1. 作用域分析(绑定器) binder.ts
+    2. 类型检查(检查器) checker.ts
   4. 优化生成
-    1. 代码转换
-    2. 最后生成
+    1. 代码转换 transformer.ts
+    2. 最后生成(发射器) emitter.ts
+
+
+## 流程概览
+
+```txt
+
+SourceCode（源码） ~~ 扫描器 ~~> Token 流
+
+```
+
+```txt
+
+Token 流 ~~ 解析器 ~~> AST（抽象语法树）
+
+```
+
+```txt
+
+AST ~~ 绑定器 ~~> Symbols（符号）
+
+```
+
+符号（Symbol）是 TypeScript 语义系统的主要构造块
+符号是绑定的结果
+符号将 AST 中的声明节点与相同实体的其他声明相连
+
+
+符号和ast是检查器用来验证源代码语义
+
+```txt
+
+AST + 符号 ~~ 检查器 ~~> 类型验证
+
+```
+
+ast和检查器是发射器用来输出js
+
+```txt
+
+AST + 检查器 ~~ 发射器 ~~> JavaScript 代码
+
+```
