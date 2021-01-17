@@ -26,6 +26,8 @@
 
 ![swift目录结构](http://img.wangdongdong9264.xyz/截屏2021-01-17 15.21.37.png "目录")
 
+<img src="http://img.wangdongdong9264.xyz/截屏2021-01-17 15.21.37.png" alt="目录结构" title="swift目录结构">
+
 ```xml
 
 <?xml version="1.0"?>
