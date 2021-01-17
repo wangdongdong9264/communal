@@ -68,3 +68,19 @@
     diskutil eject YouEquipmentPath  # 推出设备
 
 ```
+
+如果你只想在树莓派上电后自动连接wifi
+
+```txt
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+  ssid="Xiaomi_F1A0"
+  psk="hhh47023"
+  key_mgmt=WPA-PSK
+  scan_ssid=1
+}
+
+```
