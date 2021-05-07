@@ -4,6 +4,8 @@
 
 平台：mac
 
+magisk版本：22.1
+
 默认你已经安装好了`platform-tools`
 
 ### 解锁OEM
@@ -111,3 +113,37 @@ root后如何ota升级的问题
 1. 打开Magisk-卸载-还原原厂镜像
 2. 然后再ota更新 安装完成后不要点重启
 3. 打开Magisk-第一行的安装-安装到未使用的槽位 执行完成后重启
+
+## unRoot
+
+```shell
+
+fastboot --slot=all flash bootloader /youFilePath/bootloader-coral-c2f2-0.3-7062597.img
+
+fastboot reboot bootloader
+
+fastboot --solt=all flash radio /youFilePath/radio-coral-g8150-00082-210106-b-7065218.img
+
+fastboot reboot bootloader
+
+fastboot --skip-reboot --slot=all update /youFilePath/image-coral-rq2a.210405.005.zip
+
+```
+
+音量键选择`enter recovery`开机键进入 再选择`wipe date/factory reast` 继续选择`Factory data reset`
+
+等待 显示屏下面出现 `data wipe complete`
+
+选择`reboot system now`
+
+
+```shell
+
+# 在上述操作弄完后 记得上锁
+fastboot flashing lock
+
+```
+
+---
+
+如果你之前已经刷入`Magisk`过， 只需要打开`Magisk`-卸载-还原原厂镜像，然后再点击上方的重启图标（设置旁边）-重启
