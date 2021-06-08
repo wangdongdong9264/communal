@@ -1,4 +1,4 @@
-# lerna&yarn
+# lerna and yarn
 
 ## lerna
 
@@ -69,12 +69,12 @@ lerna add module-1 --scope=module-2 --peer
 
 固定模式（默认）：
   
-  * 通过`lerna.json`的版本进行版本管理。当你执行`lerna publish`命令时，如果距离上次发布只修改了一个模块，将会更新对应模块的版本号到新的版本号，然后你可以只发布修改的库.
-  * 例如 babel任何一个package的`major change`均会导致所有包都会进行`major version`的更新
+* 通过`lerna.json`的版本进行版本管理。当你执行`lerna publish`命令时，如果距离上次发布只修改了一个模块，将会更新对应模块的版本号到新的版本号，然后你可以只发布修改的库.
+* 例如 babel任何一个package的`major change`均会导致所有包都会进行`major version`的更新
 
 独立模式：
 
-  * 每个包都有自己的独立的版本号，lerna会配合git，检查文件变动，只发布有改动的package
+* 每个包都有自己的独立的版本号，lerna会配合git，检查文件变动，只发布有改动的package
 
 ### lerna缺点
 
@@ -122,7 +122,7 @@ yarn workspace <workspaceName> run <scriptName>
 
 ### 配置lerna.json
 
-在lerna.json中把`"npmClient": "npm"`改成`"npmClient": "yarn"` 
+在lerna.json中把`"npmClient": "npm"`改成`"npmClient": "yarn"`
 
 ## 其它
 
