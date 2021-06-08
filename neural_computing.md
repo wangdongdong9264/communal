@@ -36,8 +36,3 @@
 3. 部署模型并应用实际场景
 
 ## 其它
-
-[模拟电路](https://www.tinkercad.com/)
-
-账号： wangdongdong9264@hotmail.com
-密码： wang9264

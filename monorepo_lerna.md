@@ -1,4 +1,4 @@
-# monorepo
+# lerna&yarn
 
 ## lerna
 
