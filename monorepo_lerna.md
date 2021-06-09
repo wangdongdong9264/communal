@@ -137,3 +137,5 @@ yarn workspace <workspaceName> run <scriptName>
 [lerna & yarn](https://zhuanlan.zhihu.com/p/108118011)
 
 [封装Vue组件库 Yarn workspaces 和 lerna](https://blog.csdn.net/u012961419/article/details/108704826)
+
+[lerna 从原理到实战](https://blog.csdn.net/xgangzai/article/details/115423425)
