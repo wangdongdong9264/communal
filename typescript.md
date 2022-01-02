@@ -52,14 +52,14 @@ TypeScript 编译器源文件位于 `src/compiler` 目录下
     2. 文件操作 sys.ts
     3. 内部工具 utilities.ts
   2. 语法解析
-    1. 词法分析(扫描器) scanner.ts
-    2. 语法分析(解析器) parser.ts
+    1. 词法分析（扫描器） scanner.ts
+    2. 语法分析（解析器） parser.ts
   3. 语意分析
-    1. 作用域分析(绑定器) binder.ts
-    2. 类型检查(检查器) checker.ts
+    1. 作用域分析（绑定器） binder.ts
+    2. 类型检查（检查器） checker.ts
   4. 优化生成
     1. 代码转换 transformer.ts
-    2. 最后生成(发射器) emitter.ts
+    2. 最后生成（发射器） emitter.ts
 
 
 ## 流程概览
