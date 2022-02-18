@@ -86,7 +86,6 @@ AST ~~ 绑定器 ~~> Symbols（符号）
 符号是绑定的结果
 符号将 AST 中的声明节点与相同实体的其他声明相连
 
-
 符号和ast是检查器用来验证源代码语义
 
 ```txt
@@ -102,3 +101,7 @@ ast和检查器是发射器用来输出js
 AST + 检查器 ~~ 发射器 ~~> JavaScript 代码
 
 ```
+
+[ts内部术语](https://github.com/microsoft/TypeScript-Compiler-Notes/blob/main/GLOSSARY.md)
+
+[编译过程 概述](https://www.youtube.com/watch?v=X8k_4tZ16qU&list=PLYUbsZda9oHu-EiIdekbAzNO0-pUM5Iqj&index=5)
