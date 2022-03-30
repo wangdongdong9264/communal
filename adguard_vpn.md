@@ -17,3 +17,7 @@ adguard version:  3.6.7
 ## adguard 设置
 
 设置 =》网络 =》过滤方式改成`手动`, 本机代理窗口 填写`8080`
+
+## 重启adguard
+
+Done
