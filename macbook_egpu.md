@@ -15,7 +15,7 @@
 4. 在`启动转换`（第2步安装的）中选择 window （避免重启进入macOS）
 5. 将显卡装进显卡坞
 6. Windows 关机后 用雷电3线连接macbook
-7. `https://www.nvidia.cn/geforce/drivers/` 下载驱动
+7. `https://www.nvidia.cn/geforce/drivers/` 下载驱动 (或者windows update)
 8. 完成
 
 
@@ -38,5 +38,4 @@
 5. 回车后查看许可证，按 q 退出许可证，然后输入 yes 表示同意
 6. `source .bashrc`
 7. 结束
-
 
