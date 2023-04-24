@@ -13,6 +13,69 @@
 
 * verdaccio （其优点是搭建简单，不需要其他服务）
 * cnpm （需要数据库服务，支持 redis 缓存）
+
+## docker 搭建 verdaccio 6
+
+1. 下载镜像
+
+```sh
+
+docker pull verdaccio/verdaccio
+
+```
+
+2. 创建本地 `docker-compose.yml`
+
+```yml
+
+version: '3.1'
+
+services:
+  verdaccio:
+    image: verdaccio/verdaccio
+    container_name: 'verdaccio'
+    networks:
+      - node-network
+    environment:
+      - VERDACCIO_PORT=4873
+    ports:
+      - '4873:4873'
+    volumes:
+      - '/www/verdaccio/storage:/verdaccio/storage'
+      - '/www/verdaccio/conf:/verdaccio/conf'
+      - '/www/verdaccio/plugins:/verdaccio/plugins'
+networks:
+  node-network:
+    driver: bridge
+
+```
+
+3. 添加 `config.yaml` 文件
+
+在映射的`/verdaccio/conf`路径下 （eg: `/www/verdaccio/conf/`  ）创建 配置文件
+
+```sh
+
+cd /www/verdaccio/conf/
+vim config.yaml
+
+```
+
+不添加会报错`verdaccio cannot open config file`
+
+具体配置参考 [https://verdaccio.org/docs/next/configuration](https://verdaccio.org/docs/next/configuration)
+
+
+ 
+4. 执行命令 
+
+在 `docker-compose.yml`目录下 执行
+
+```sh
+
+docker compose up
+
+```
   
 ## 其它
 
