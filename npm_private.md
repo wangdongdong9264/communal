@@ -73,7 +73,7 @@ vim config.yaml
 
 ```sh
 
-docker compose up
+docker compose up -d
 
 ```
   
