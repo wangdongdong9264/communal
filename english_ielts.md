@@ -31,6 +31,9 @@ international English language test system
     * under intense emotional strain
     * help revitalize physically and mentally
 2. 环境能源
+    * ease traffic congestion
+    * developing renewable energy reduces pollution
+    * utilize the tax money to make cities greener
 3. 社会热点
 4. 文化传统
 5. 日常生活
