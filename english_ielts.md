@@ -42,10 +42,17 @@ international English language test system
 8. 心理情感
 9. 新闻媒体
 
+### 阅读 
+
+
 ## 其它
 
 6分是个分水岭
 
 本质上是考察`同义替换`
 
-可以找一些
+可以找一些素材
+
+NG：`not give` 范围变化，偷换概念
+
+`false` and `not give`  题目和文章能否共存 ？NG ： F
