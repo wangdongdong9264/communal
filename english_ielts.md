@@ -35,6 +35,8 @@ international English language test system
     * developing renewable energy reduces pollution
     * utilize the tax money to make cities greener
 3. 社会热点
+    * help develop tolerance for different ways of thinking
+    * make culture more diverse by developing new & original trends in seciety
 4. 文化传统
 5. 日常生活
 6. 科技教育
@@ -56,3 +58,5 @@ international English language test system
 NG：`not give` 范围变化，偷换概念
 
 `false` and `not give`  题目和文章能否共存 ？NG ： F
+
+如果你听不懂 但是能看懂 说明缺少跟读 （学生时期的早读）
