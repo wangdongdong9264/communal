@@ -38,14 +38,25 @@ international English language test system
     * help develop tolerance for different ways of thinking
     * make culture more diverse by developing new & original trends in seciety
 4. 文化传统
+    * since young people today are not interested
+    * you cannot earn big in such fields
 5. 日常生活
+    * extended family remains as valuable as in the past
+    * a family gathering can be a great opportunity to reconnect with distant relatives
 6. 科技教育
+    * it is sometimes important to push your children, but not to become overbearing
+    * a high-tech society allows people to live loger and more comfortable lives
 7. 职场经济
+    * most high-paying jobs require a degree of higher education
+    * what constitutes career fulfillment differs from worker to worker
 8. 心理情感
+    * there is no point in getting stressed out about things you cannot change
 9. 新闻媒体
+    * it is easy to lost truck of time in the endless contents and notifications
 
-### 阅读 
+---
 
+### 阅读
 
 ## 其它
 
