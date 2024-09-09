@@ -1,6 +1,6 @@
 # english vocabulary
 
-词
+level： a1 < a2 < b1 < b2 < c1 < c2
 
 ## preposition: with, for, about
 
@@ -83,3 +83,6 @@ we use `whose` to give extra information about possession
     * where
     * when
 
+## ohter
+
+[discribes the different level](https://www.cambridgeenglish.org/learning-english/parents-and-children/how-to-support-your-child/what-are-the-different-levels-of-learning-a-language/)
