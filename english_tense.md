@@ -85,3 +85,5 @@ has `she he it`
 ## 其它
 
 第三人称单数：he she it 可数名词单数 不可数名词
+
+![english sentence](https://img.wangdongdong9264.xyz/english_sentence.png)

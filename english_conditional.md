@@ -31,3 +31,5 @@ if + had done, would/might have done
 ## other
 
 should / shouldn't have done 本应该/本不应该
+
+![english tone](https://img.wangdongdong9264.xyz/english_voice.png)
