@@ -131,7 +131,7 @@ nginx -s reload
 
 ## 注册账号
 
-打开本地 `terminal` 
+打开本地 `terminal`
 
 ```shell
 
@@ -152,7 +152,15 @@ npm login
 sudo chown -R 10001:65533 /www/verdaccio
 
 ```
-  
+
+## 发布
+
+```shell
+npm publish
+```
+
+![ publish](https://img.wangdongdong9264.xyz/verdaccio_publish.png)
+
 ## 其它
 
 [verdaccio 官网 https://verdaccio.org](https://verdaccio.org)
