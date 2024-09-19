@@ -63,17 +63,93 @@ vim config.yaml
 
 不添加会报错`verdaccio cannot open config file`
 
+```yaml
+# config.yaml
+storage: ./storage
+auth:
+  htpasswd:
+    file: ./htpasswd
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+  '**':
+    proxy: npmjs
+log: { type: stdout, format: pretty, level: http }
+
+```
+
 具体配置参考 [https://verdaccio.org/docs/next/configuration](https://verdaccio.org/docs/next/configuration)
 
-
- 
-4. 执行命令 
+4. 执行命令
 
 在 `docker-compose.yml`目录下 执行
 
 ```sh
 
 docker compose up -d
+
+```
+
+## 配置 nginx
+
+```conf
+
+upstream npmproxy {
+    server 127.0.0.1:4873;
+}
+
+
+server {
+    listen 80;
+    server_name  npm.yourdomain.xyz;
+    # return 301 https://$server_name$request_uri;
+    location / {
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Host $host;
+        proxy_set_header X-Nginx-Proxy true;
+        proxy_set_header   Host $http_host;
+        proxy_ssl_session_reuse off;
+        proxy_pass         http://npmproxy;
+        proxy_redirect off;
+    }
+}
+
+```
+
+重启 nginx
+
+```shell
+
+nginx -s reload
+
+```
+
+## 注册账号
+
+打开本地 `terminal` 
+
+```shell
+
+nrm add myself http://npm.yourdomain.xyz
+
+nrm use myself
+
+npm login
+
+```
+
+`npm login`可能会出现下面这个错误
+
+![e500 错误](https://img.wangdongdong9264.xyz/verdaccio_e500.png)
+
+```shell
+# Linux 文件权限问题
+sudo chown -R 10001:65533 /www/verdaccio
 
 ```
   
@@ -83,3 +159,4 @@ docker compose up -d
 
 [cnpmcore 开发文档](https://github.com/cnpm/cnpmcore/blob/main/DEVELOPER.md)
 
+[00 Internal Server Error](https://github.com/verdaccio/verdaccio/issues/1814)
