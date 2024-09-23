@@ -167,4 +167,4 @@ npm publish
 
 [cnpmcore 开发文档](https://github.com/cnpm/cnpmcore/blob/main/DEVELOPER.md)
 
-[00 Internal Server Error](https://github.com/verdaccio/verdaccio/issues/1814)
+[500 Internal Server Error](https://github.com/verdaccio/verdaccio/issues/1814)
