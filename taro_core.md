@@ -12,11 +12,20 @@ pnpm i
 
 ## mainly packages
 
+### runtime
+
 `@tarojs/runtime`
+`@tarojs/react`
+`@tarojs/plugin-platform-react`
 
-no matter how the front-end framework evolves, its underlying calls are all native apis in the w3c specification, such as window, document, etc. If the Dom and Bom apis compatible with the w3c specification are implemented in the mini-program environment, different front-end framework can be run in the mini-program environment. The differences between different mini-program end platforms, such as life cycle, component library, api, etc., are implemented by each end by specifying a set of en platform plug-in standards and injected into the packaging result during compilation.
+### compiling
 
-### 
+`@tarojs/mini-runner`
+`@tarojs/taro-loader`
+
+## overview
+
+![taro overall](https://img.wangdongdong9264.xyz/taro_overall.png)
 
 ## other
 
