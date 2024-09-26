@@ -29,6 +29,4 @@ pnpm i
 
 ## other
 
-[@tarojs/runtime core apis](https://github.com/NervJS/taro/tree/main/packages/taro-runtime)
-
 [version-3.x/codebase-overview](https://github.com/NervJS/taro-docs/blob/master/versioned_docs/version-3.x/codebase-overview.md?plain=1)
