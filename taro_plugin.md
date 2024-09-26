@@ -13,7 +13,7 @@ Taro internally supports 6 mini program platforms by default
 
 ### directory structure
 
-@tarojs/plugin-platform-weapp 
+@tarojs/plugin-platform-weapp
 
 path: taro/packages/taro-weapp
 
