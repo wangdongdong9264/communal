@@ -85,6 +85,7 @@ jsx code > get AST > resolve render > transform code > generate code
 | data.map(item => ...) | wx:for="data" wx:for-item="item" |
 | && | wx:if |
 | attribute calculation | complex expressions |
+| ... | ... |
 
 ## other
 
