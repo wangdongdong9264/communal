@@ -22,11 +22,61 @@ workbench >  external dsl > internal dsl（declarative） > command-query api (i
 
 when the benefits of using a dsl outweigh the cost of building it
 
-## simple example
+## simple tutorial (external dsl)
+
+base `domain specific language` book and use typescript translate
 
 ### state machine model
 
+
+
 ### custom syntax
+
+```js
+
+events
+    doorClosed   D1CL
+    drawerOpened D2OP
+    lightOn      L1ON
+    doorOpened   D1OP
+    panelClosed  PNCL
+end
+
+resetEvents
+    doorOpened
+end
+
+commands
+    unlockPanel PNUL
+    lockPanel   PNLK
+    lockDoor    D1LK
+    unlockDoor  D1UL
+end
+
+state idle
+    actions {unlockDoor lockPanel}
+    doorClosed => active
+end
+
+state active
+    drawerOpened => waitingForLight
+    lightOn => waitingForDrawer
+end
+
+state waitingForLight
+    lightOn => unlockedPanel
+end
+
+state waitingForDrawer
+    drawerOpened => unlockedPanel
+end
+
+state unlockedPanel
+    actions {unlockPanel lockDoor}
+    panelClosed => idle
+end
+
+```
 
 ### lexical parser
 
@@ -34,7 +84,7 @@ when the benefits of using a dsl outweigh the cost of building it
 
 ### parser combinators
 
-### parser generator
+### parser generator（antlr）
 
 ## other
 
