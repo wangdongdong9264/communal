@@ -28,7 +28,11 @@ base `domain specific language` book and use typescript translate
 
 ### state machine model
 
+![dsl miss state](https://img.wangdongdong9264.xyz/dsl_miss_state.png)
 
+[code](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/src/step_1/index.ts)
+
+[test](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/tests/step_1/index.test.ts)
 
 ### custom syntax
 
@@ -80,11 +84,29 @@ end
 
 ### lexical parser
 
+process: input > scannerPatterns scanRecognizer > tokens > stateMachineTokenizer
+
+[code](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/src/step_2/index.ts)
+
+[test](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/tests/step_2/index.test.ts)
+
 ### syntax parser
+
+[code](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/src/step_3/index.ts)
+
+[test](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/tests/step_3/index.test.ts)
 
 ### parser combinators
 
+[code](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/src/step_4/index.ts)
+
+[test](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/tests/step_4/index.test.ts)
+
 ### parser generator（antlr）
+
+[code](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/src/step_5/index.ts)
+
+[test](https://github.com/wangdongdong9264/dsl_tutarial/blob/main/tests/step_5/index.test.ts)
 
 ## other
 
