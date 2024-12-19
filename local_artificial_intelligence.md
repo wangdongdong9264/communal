@@ -54,6 +54,99 @@ if the llama is on your computer, you use this command
 
 open website `http://localhost:3000/`
 
+## unsloth
+
+fine tuning
+
+### step 1
+
+```json
+
+[
+    {
+        "instruction":"你是谁",
+        "input": "",
+        "output": "我是王东东"
+    }
+]
+
+```
+
+For example `Fine-tuning.json`
+
+### step 2
+
+open `https://github.com/unslothai/unsloth`
+
+find `Finetune for Free`
+
+click `Llama 3.1 (8B)  Start for free`
+
+### step 3
+
+website on the left have a files, create a folder `data`
+
+upload json file `Fine-tuning.json`
+
+find `data Prep`
+
+`dataset = load_dataset("yahma/alpaca-cleaned", split = "train")` replace  `dataset = load_dataset("/content/data/", split = "train")`
+
+![unsloth_data_prep](https://img.wangdongdong9264.xyz/unsloth_data_prep.png)
+
+### step 4
+
+find `GGUF / llama.cpp Conversion`
+
+```shell
+
+# Save to q4_k_m GGUF
+if False: model.save_pretrained_gguf("model", tokenizer, quantization_method = "q4_k_m")
+
+```
+
+replace
+
+```shell
+
+if Ture: model.save_pretrained_gguf("model", tokenizer, quantization_method = "q4_k_m")
+
+```
+
+![unsloth_gguf](https://img.wangdongdong9264.xyz/unsloth_gguf.png)
+
+### step 5
+
+not required，but i suggest you do it（why？because direct download is too slow）
+
+website on the left have a `Mount Drive`, click it
+
+scroll to code location and click `+ Code`
+
+```python
+
+import shutil
+local = '/content/model-unsloth-Q4_K_M.gguf'
+google_drive = '/content/drive/My Drive/model-unsloth-Q4_K_M.gguf'
+shutil.copy(local, google_drive)
+print('copy success')
+
+```
+
+![unsloth_google_drive](https://img.wangdongdong9264.xyz/unsloth_google_drive.png)
+
+### step 6
+
+select `Runtime` > `Run all`, wait about a half hours
+
+![unsloth_file_path](https://img.wangdongdong9264.xyz/unsloth_file_path.png)
+
+go to google drive website and click my drive. find `model-unsloth-Q4_K_M.gguf` and dowload
+
+---
+
+warning： `step 5` will be a privacy pop-up window
+
 ## other
 
 [Ollamap website](https://ollama.com/)
@@ -65,3 +158,5 @@ open website `http://localhost:3000/`
 [open webUI github](https://github.com/open-webui/open-webui)
 
 [open webUI document](https://docs.openwebui.com/)
+
+[unsloth](https://github.com/unslothai/unsloth)
