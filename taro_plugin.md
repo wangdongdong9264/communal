@@ -5,10 +5,15 @@ Taro internally supports 6 mini program platforms by default
 ## example
 
 `@tarojs/plugin-platform-weapp` Wechat mini program plugin
+
 `@tarojs/plugin-platform-alipay` Alipay mini program plugin
+
 `@tarojs/plugin-platform-swan` Baidu smart program plugin
+
 `@tarojs/plugin-platform-tt` ByteDance mini program plugin
+
 `@tarojs/plugin-platform-qq` QQ mini program plugin
+
 `@tarojs/plugin-platform-jd` Jingdong mini program plugin
 
 ### directory structure
