@@ -13,7 +13,7 @@ version: 3.11.0
 5. test it
 6. click `MCP Servers` find `time` and install
 7. it will create `cline_mcp_settings.json`
-8. open terminus `pip install mcp-server-time`
+8. open terminal `pip install mcp-server-time`
 
 ### cline_mcp_settings.json
 
