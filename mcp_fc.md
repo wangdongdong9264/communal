@@ -10,10 +10,16 @@ version: 3.11.0
 2. open Cline setting, `API Provider` choose `OpenRouer`
 3. `Model` choose `deepseek/deepseek-chat:free`
 4. click `Get OpenRouter API Key`（if you have）
+
+![mcp_gatway](https://img.wangdongdong9264.xyz/mcp_gatway.png)
+
 5. test it
+
+![mcp_test_openrouter](https://img.wangdongdong9264.xyz/mcp_test_openrouter.png)
+
 6. click `MCP Servers` find `time` and install
-7. it will create `cline_mcp_settings.json`
-8. open terminal `pip install mcp-server-time`
+7. open new terminal `pip install mcp-server-time`
+8. it will create `cline_mcp_settings.json`
 
 ### cline_mcp_settings.json
 
@@ -34,7 +40,40 @@ i used `conda`, so maybe the command string is different
 
 ```
 
-## what kind of protocol ?
+## what kind of protocol?
+
+we need ai-gateway of cloudflare
+
+1. dash > AI > AI Gateway > create new one
+2. click this that it is your created and find `API` button
+3. Platform select `OpenRouer` & copy `API Endpoint` url
+4. go back your Cline setting and fall it
+
+![mcp_set_cloudflare](https://img.wangdongdong9264.xyz/mcp_set_cloudflare.png)
+
+`new task` then ask 'what time now'
+
+---
+
+open `AI Gateway` logs
+
+![mcp_gatway](https://img.wangdongdong9264.xyz/mcp_gatway.png)
+
+copy Request logs, you will find it in system prompt
+
+```txt
+
+You have the ability to create an MCP server and add it to a configuration file that will then expose the tools and resources for you to use with `use_mcp_tool` and `access_mcp_resource`). The documentation provides detailed information about the MCP server creation process, including setup instructions, best practices, and examples.
+
+```
+
+copy Response logs, OpenAI give your answer is use the `use_mcp_tool` tood
+
+```txt
+
+"<thinking>\nThe user wants to know the current time. I can use the `use_mcp_tool` tool to get the current time in the Asia/Shanghai timezone.\n</thinking>\n\n<use_mcp_tool>\n<server_name>github.com/modelcontextprotocol/servers/tree/main/src/time</server_name>\n<tool_name>get_current_time</tool_name>\n<arguments>\n{\n  \"timezone\": \"Asia/Shanghai\"\n}\n</arguments>\n</use_mcp_tool>"
+
+```
 
 ## other
 
@@ -51,3 +90,5 @@ i used `conda`, so maybe the command string is different
 [https://github.com/astral-sh/uv/](https://github.com/astral-sh/uv/)
 
 if you had `Apple could not verify “uvx” is free of malware that may harm your Mac or compromise your privacy.` open Mac Setting `pravicy & security`  click `allow anyway`
+
+[ai-gatway document](https://developers.cloudflare.com/ai-gateway/)
