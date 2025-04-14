@@ -75,6 +75,19 @@ copy Response logs, OpenAI give your answer is use the `use_mcp_tool` tood
 
 ```
 
+## process
+
+![mcp_run_process](https://img.wangdongdong9264.xyz/mcp_run_process.png)
+
+## Function Calling vs MCP
+
+| Feature      | Function Calling | MCP |
+| ----------- | ----------- | ----------- |
+|  Purpose  |   Converts user prompts into structured function calls.   |  Standardizes execution and response handling.  |
+|   Who Controls It?    |   LLM provider    |  External system handling LLM integration.  |
+|   Output Format    |   Varies by LLM vendor (JSON-based).    |  Uses a standardized protocol (e.g., JSON-RPC).  |
+|   Flexibility    |   Different models structure calls differently.    |  Ensures interoperability across multiple tools.  |
+
 ## other
 
 [origin news](https://www.anthropic.com/news/model-context-protocol)
