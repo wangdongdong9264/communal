@@ -11,7 +11,7 @@ version: 3.11.0
 3. `Model` choose `deepseek/deepseek-chat:free`
 4. click `Get OpenRouter API Key`（if you have）
 
-![mcp_gatway](https://img.wangdongdong9264.xyz/mcp_gatway.png)
+![mcp_set_openroter](https://img.wangdongdong9264.xyz/mcp_set_openroter.png)
 
 5. test it
 
