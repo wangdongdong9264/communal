@@ -79,3 +79,15 @@ umount /tmp/extroot
 `reboot`
 
 ## v2ray
+
+```shell
+
+opkg install v2raya luci-app-v2raya v2ray-geoip v2ray-geosite
+
+```
+
+`reboot`
+
+`services` > `v2rayA`  click `Open Web Interface`
+
+create your `username` and `password`
