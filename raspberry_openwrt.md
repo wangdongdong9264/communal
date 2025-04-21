@@ -6,6 +6,8 @@ version: 24.10.0
 
 ## config
 
+![openwrt_network](https://img.wangdongdong9264.xyz/openwrt_network.jpg)
+
 ## expand
 
 ```shell
@@ -20,13 +22,19 @@ cfdisk /dev/mmcblk0
 
 ```
 
+![openwrt_cfdisk_start](https://img.wangdongdong9264.xyz/openwrt_cfdisk_start.png)
+
 `new` > `primary` >  `write` > `yes` > `quit`
+
+![openwrt_cfdisk_end](https://img.wangdongdong9264.xyz/openwrt_cfdisk_end.png)
 
 ```shell
 
 fdisk -l
 
 ```
+
+![openwrt_fdisk](https://img.wangdongdong9264.xyz/openwrt_fdisk.png)
 
 ```shell
 
@@ -46,11 +54,15 @@ installed and `reboot`, you will find `mount points`
 
 select your create disk and click edit
 
+![openwrt_mount](https://img.wangdongdong9264.xyz/openwrt_mount.png)
+
 selected `Enabled`
 
 selected `Use as root filesystem`
 
 save & apply
+
+![openwrt_mount_set](https://img.wangdongdong9264.xyz/openwrt_mount_set.png)
 
 ```shell
 
@@ -65,3 +77,5 @@ umount /tmp/extroot
 ```
 
 `reboot`
+
+## v2ray
