@@ -8,6 +8,8 @@ version: 24.10.0
 
 ![openwrt_network](https://img.wangdongdong9264.xyz/openwrt_network.jpg)
 
+my switch ip is `192.168.1.1`
+
 ## expand
 
 ```shell
