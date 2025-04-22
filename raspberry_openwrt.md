@@ -91,3 +91,11 @@ opkg install v2raya luci-app-v2raya v2ray-geoip v2ray-geosite
 `services` > `v2rayA`  click `Open Web Interface`
 
 create your `username` and `password`
+
+open setting
+
+![openwrt_v2ray](https://img.wangdongdong9264.xyz/openwrt_v2ray.png)
+
+take your phone and set a proxy
+
+![openwrt_proxy](https://img.wangdongdong9264.xyz/openwrt_proxy.PNG)
