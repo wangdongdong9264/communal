@@ -12,13 +12,13 @@ my switch ip is `192.168.1.1`
 
 ## expand
 
-```shell
+```sh
 
 opkg install cfdisk fdisk
 
 ```
 
-```shell
+```sh
 
 cfdisk /dev/mmcblk0
 
@@ -30,7 +30,7 @@ cfdisk /dev/mmcblk0
 
 ![openwrt_cfdisk_end](https://img.wangdongdong9264.xyz/openwrt_cfdisk_end.png)
 
-```shell
+```sh
 
 fdisk -l
 
@@ -38,7 +38,7 @@ fdisk -l
 
 ![openwrt_fdisk](https://img.wangdongdong9264.xyz/openwrt_fdisk.png)
 
-```shell
+```sh
 
 mkfs.ext4 /dev/mmcblk0p3
 
@@ -46,7 +46,7 @@ mkfs.ext4 /dev/mmcblk0p3
 
 if your OS is from official, you can not find `mount points` select in system
 
-```shell
+```sh
 
 opkg install block-mount
 
@@ -66,7 +66,7 @@ save & apply
 
 ![openwrt_mount_set](https://img.wangdongdong9264.xyz/openwrt_mount_set.png)
 
-```shell
+```sh
 
 mkdir -p /tmp/introot
 mkdir -p /tmp/extroot
@@ -82,7 +82,7 @@ umount /tmp/extroot
 
 ## v2ray
 
-```shell
+```sh
 
 opkg install v2raya luci-app-v2raya v2ray-geoip v2ray-geosite
 
@@ -101,3 +101,7 @@ open setting
 take your phone and set a proxy
 
 ![openwrt_proxy](https://img.wangdongdong9264.xyz/openwrt_proxy.PNG)
+
+## other
+
+[v2raya document](https://v2raya.org/en/docs/prologue/installation/openwrt/)
