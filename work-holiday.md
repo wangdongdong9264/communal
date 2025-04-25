@@ -71,6 +71,12 @@ go back to the account homepage and you will see the application status. "Receiv
 
 just need wait and luck
 
+### selected
+
+time: 2024/11/25
+
+![whv_selected](https://img.wangdongdong9264.xyz/whv_selected.png)
+
 ## other
 
 If you hold a valid passport issued by `China`, India or Vietnam, you must participate in a visa pre-application process (ballot) and be randomly selected to apply for a first Work and Holiday (subclass 462) visa
