@@ -102,6 +102,24 @@ take your phone and set a proxy
 
 ![openwrt_proxy](https://img.wangdongdong9264.xyz/openwrt_proxy.PNG)
 
+## adguard
+
+```sh
+
+opkg install adguardhome
+
+```
+
+Status > System Log   search adguardhome in logs
+
+you will seen 80, 53 port bind fail, bind 3000. open it `http://192.168.1.100:3000/`
+
+change web and dns port that you haven't used. as 3000 and 3053
+
+Network > DHCP and DNS > Forwards   DNS Forwards add value `192.168.1.100#3053`
+
+save & apply
+
 ## other
 
 [v2raya document](https://v2raya.org/en/docs/prologue/installation/openwrt/)
