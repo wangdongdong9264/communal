@@ -122,4 +122,8 @@ save & apply
 
 ## other
 
+[Firmware downloads](https://openwrt.org/toh/views/toh_fwdownload)
+
 [v2raya document](https://v2raya.org/en/docs/prologue/installation/openwrt/)
+
+[github AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
