@@ -30,3 +30,5 @@ pnpm i
 ## other
 
 [version-3.x/codebase-overview](https://github.com/NervJS/taro-docs/blob/master/versioned_docs/version-3.x/codebase-overview.md?plain=1)
+
+[deepwiki taro](https://deepwiki.com/NervJS/taro)
