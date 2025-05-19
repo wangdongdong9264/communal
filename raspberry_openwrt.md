@@ -127,3 +127,5 @@ save & apply
 [v2raya document](https://v2raya.org/en/docs/prologue/installation/openwrt/)
 
 [github AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
+
+[adblockfilters](https://github.com/217heidai/adblockfilters)
