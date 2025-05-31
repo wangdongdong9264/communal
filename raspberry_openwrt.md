@@ -128,4 +128,6 @@ save & apply
 
 [github AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)
 
-[adblockfilters](https://github.com/217heidai/adblockfilters)
+[adblock filters](https://github.com/217heidai/adblockfilters)
+
+[v2ray rules dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
