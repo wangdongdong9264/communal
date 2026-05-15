@@ -63,3 +63,7 @@ my-Skill.zip
 * Review any Skills you download before enabling them.
 
 * Use appropriate MCP connections for external service access.
+
+## other
+
+[example Skills](https://github.com/anthropics/skills/tree/main/skills)
